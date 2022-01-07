@@ -1,4 +1,4 @@
-# Weclome to Java Blue
+# Weclome to Java Blue Cohort 16
 
 ## IMPORTANT LINKS
 
@@ -6,30 +6,25 @@ Java Blue Classroom
 <https://zoom.us/j/3948648450>
 
 Lecture Slides, Recordings, and Cheat Sheets  
-<https://drive.google.com/drive/folders/1Ze_J1_Nv7i2YQNClw2-wUwK6fMqZYtgG>
+<https://drive.google.com/drive/folders/110RxhN3er5y0Ub8GwhK9JZMHQknOyfBi?usp=sharing>
 
-Tech Elevator Student Book  
-<https://v2-3-techelevator-book.netlify.app/content/language.html>
-
-Student Dashboard  
-<https://bos.techelevator.com/>
+Learn (Materials, Quizzes, Exercises, and Scores)  
+<http://lms.techelevator.com/>
 
 ## GETTING NEW MATERIAL
 
-In Terminal:
+Run these commands in BASH in the root of your student code folder
 
-1. `cd ~/Development/yourname-java-blue`
-2. `git add -A`
-3. `git commit -m "comment"`
-4. `git pull upstream main`
+1. `git add -A`
+2. `git commit -m "comment"`
+3. `git pull upstream main`
 
 ## SUBMITTING INDIVIDUAL WORK
 
-In Terminal:
+Run these commands in BASH in the root of your student code folder
 
-1. `cd ~/Development/yourname-java-blue`
-2. `git add -A`
-3. `git commit -m "comment"`
-4. `git push origin main`
+1. `git add -A`
+2. `git commit -m "comment"`
+3. `git push origin main`
 
-Watch the output for errors!
+Watch the output for errors and messages!
