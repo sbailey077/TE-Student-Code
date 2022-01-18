@@ -405,6 +405,9 @@ public class Exercises {
         orphanage. If two lemon cupcakes were left at home, how many
         boxes with 3 lemon cupcakes each were given away?
         */
+		int numberOfLemonCupcakes = 53;
+		int numberOfCupcakesPerBox = 3;
+		int numberOfBoxesGivenAway = numberOfLemonCupcakes / numberOfCupcakesPerBox;
 
 
         /* Exercise 45
@@ -412,6 +415,9 @@ public class Exercises {
         were served equally to 12 people, how many carrot sticks were left
         uneaten?
         */
+		int numberOfCarrotSticks = 74;
+		int numberOfPeopleEatingCarrots = 12;
+		int numberOfCarrotSticksUneaten = numberOfCarrotSticks % numberOfPeopleEatingCarrots;
 
 
         /* Exercise 46
@@ -419,6 +425,9 @@ public class Exercises {
         them on the shelves in their bedroom. If every shelf can carry a
         maximum of 7 teddy bears, how many shelves will be filled?
         */
+		int totalNumberOfTeddyBears = 98;
+		int numberOfTeddyBearsPerShelf = 7;
+		int numberOfShelvesFilled = totalNumberOfTeddyBears / numberOfTeddyBearsPerShelf;
 
 
         /* Exercise 47
@@ -426,7 +435,9 @@ public class Exercises {
         them in an album. If an album can contain 20 pictures, how many
         albums will she need if there are 480 pictures?
         */
-
+		int numberOfFamilyPictures = 480;
+		int numberOfPicturesPerAlbum = 20;
+		int numberOfAlbumsNeeded = numberOfFamilyPictures / numberOfPicturesPerAlbum;
 
         /* Exercise 48
         48. Joe, Susie’s brother, collected all 94 trading cards scattered in his
@@ -434,19 +445,28 @@ public class Exercises {
         cards, how many boxes were filled and how many cards are there in
         the unfilled box?
         */
-
+		int numberOfJoesTradingCards = 94;
+		int maximumNumberOfCardsPerBox = 8;
+		int numberOfFullBoxes = numberOfJoesTradingCards / maximumNumberOfCardsPerBox;
+		int numberOfCardsLeftOver = numberOfJoesTradingCards % maximumNumberOfCardsPerBox;
 
         /* Exercise 49
         49. Susie’s father repaired the bookshelves in the reading room. If he has
         210 books to be distributed equally on the 10 shelves he repaired,
         how many books will each shelf contain?
         */
+		int totalNumberOfBooks = 210;
+		int numberOfReadingRoomShelves = 10;
+		int numberOfBooksPerReadingRoomShelf = totalNumberOfBooks / numberOfReadingRoomShelves;
 
 
         /* Exercise 50
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
+		int numberOfCroissantsCristinaBaked = 17;
+		double numberOfGuests = 7;
+		double numberOfCroissantsPerGuest = numberOfCroissantsCristinaBaked / numberOfGuests;
 
 
 	    /* Exercise 51
@@ -454,6 +474,18 @@ public class Exercises {
 	    1.90 hours. How long will it take the two painters working together to paint 5 12 x 14 rooms?
 	    Hint: Calculate the hourly rate for each painter, combine them, and then divide the total walls in feet by the combined hourly rate of the painters.
 	    */
+		int areaPerWallInFeet = 12 * 14;
+		int numberOfWallsPerRoom = 4;
+		int totalNumberOfRooms = 5;
+		int totalAreaPerRoomInFeet = areaPerWallInFeet * numberOfWallsPerRoom;
+		int totalAreaNeededToPaint = totalAreaPerRoomInFeet * totalNumberOfRooms;
+		double billPaintingRateInRoomPerHour = 2.15;
+		double jillPaintingRateInRoomPerHour = 1.90;
+		double billsHourlyPaintingRatePerRoom = totalAreaPerRoomInFeet / billPaintingRateInRoomPerHour;
+		double jillsHourlyPaintingRatePerRoom = totalAreaPerRoomInFeet / jillPaintingRateInRoomPerHour;
+		double combinedHourlyPaintingRatePerRoom = billsHourlyPaintingRatePerRoom + jillsHourlyPaintingRatePerRoom;
+		double combinedTimeToPaintTotalArea = totalAreaNeededToPaint / combinedHourlyPaintingRatePerRoom;
+
 
 
 	    /* Exercise 52
@@ -463,12 +495,19 @@ public class Exercises {
 		with a period. Use "Grace", "Hopper, and "B" for the first name, last name, and middle initial.
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
+		String firstName = "Grace ";
+		String lastName = "Hopper, ";
+		String middleInitial = "B.";
+		String fullName = lastName + firstName + middleInitial;
 
 
 	    /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
+		double totalDistanceBetweenNewYorkAndChicagoInMiles = 800;
+		double distanceTrainHasAlreadyTraveledInMiles = 537;
+		int percentageOfTripCompleted = (int)((distanceTrainHasAlreadyTraveledInMiles / totalDistanceBetweenNewYorkAndChicagoInMiles) * 100);
 
 	}
 
