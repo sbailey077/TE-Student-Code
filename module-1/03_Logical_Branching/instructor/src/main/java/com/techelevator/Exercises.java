@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Locale;
+
 public class Exercises {
 
 	/*
@@ -10,7 +12,24 @@ public class Exercises {
 	 sleepIn(false, true) → true
 	 */
 	public boolean sleepIn(boolean weekday, boolean vacation) {
-		return false;
+
+		return !weekday || vacation;
+
+		// Solution One
+//		boolean doesSleepIn = false;
+//
+//		// if not weekday sleep in
+//		if (weekday == false) {
+//			doesSleepIn = true;
+//		}
+//
+//		// if on vacation sleep in
+//		if (vacation == true) {
+//			doesSleepIn = true;
+//		}
+//
+//		// otherwise don't sleep in
+//		return doesSleepIn;
 	}
 
 	/*
@@ -227,7 +246,31 @@ public class Exercises {
      yourCakeAndEatItToo(11.00, false) → "special"
      */
     public String yourCakeAndEatItToo(double mealAmount, boolean isBirthday) {
-        return "";
+		/*
+			Trying to determine what free dessert the customer gets
+			The type of free dessert is based on the price of meal
+				<= $10 (standard), <= $15 (special), > $15 (ginormous)
+			The price of the meal is "increased" by $5 if it is the customers birthday (so they get a larger dessert)
+		 */
+
+		// check if Birthday.  If true mealAmount + 5
+		if (isBirthday == true) {
+			mealAmount = mealAmount + 5;
+		}
+
+
+		// if mealAmount > 15.  If true return 'ginormous'
+		if (mealAmount > 15) {
+			return "ginormous";
+		}
+		// mealAmount must be <=15, so if mealAmount > 10.  If true return 'special'
+		else if (mealAmount > 10) {
+			return "special";
+		}
+		// mealAmount must be 10 or less, so return 'standard'
+		else {
+			return "standard";
+		}
     }
 
 	/*
