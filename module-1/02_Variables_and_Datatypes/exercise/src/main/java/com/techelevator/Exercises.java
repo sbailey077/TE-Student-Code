@@ -485,7 +485,7 @@ public class Exercises {
 		double jillsHourlyPaintingRatePerRoom = totalAreaPerRoomInFeet / jillPaintingRateInRoomPerHour;
 		double combinedHourlyPaintingRatePerRoom = billsHourlyPaintingRatePerRoom + jillsHourlyPaintingRatePerRoom;
 		double combinedTimeToPaintTotalArea = totalAreaNeededToPaint / combinedHourlyPaintingRatePerRoom;
-
+		System.out.println(combinedTimeToPaintTotalArea);
 
 
 	    /* Exercise 52
