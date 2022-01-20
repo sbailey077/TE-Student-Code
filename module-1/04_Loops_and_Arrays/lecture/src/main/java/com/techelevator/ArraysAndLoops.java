@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class ArrayAndLoops {
+public class ArraysAndLoops {
 
     public static void main(String[] args) {
 
