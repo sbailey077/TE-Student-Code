@@ -165,7 +165,25 @@ public class Exercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
-		return false;
+		int indicator = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] != 2 && indicator == 0) {
+				continue;
+			} else if (nums[i] != 2 && indicator == 1) {
+				indicator--;
+				continue;
+			} else if (nums[i] == 2 && indicator == 1) {
+				indicator++;
+				continue;
+			} else if (nums[i] == 2 && indicator == 0) {
+				indicator++;
+				continue;
+			}
+		} if (indicator == 2) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/*
