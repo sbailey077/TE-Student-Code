@@ -137,6 +137,68 @@ public class ArraysAndLoops {
                 System.out.println("Y is = to " + y);
             }
         }
-    
+
+
+        /*
+            LOOPS
+         */
+
+        /*
+            counter variable ; boolean condition that starts true ; change
+         */
+        for (int i = 0 ;  i < 10  ;  i++)
+        {
+            System.out.println(i);
+        }
+
+        int sum = 0;
+        for (int i = 100; i <= 200; i++) {
+            sum += i;
+        }
+        System.out.println(sum);
+
+        for (int i = 29; i > 0; i--) {
+            System.out.println(i);
+        }
+
+        for (int n = 321 ; n < 500; n += 3) {
+            System.out.print(n + " ");
+        }
+
+        System.out.println();
+
+        int sumOfEvens = 0;
+        for (int i = 0; i < 100; i++) {
+            if (i % 2 == 0) {
+                sumOfEvens += i;
+                System.out.println("i=" + i + " sumOfEvens=" + sumOfEvens);
+            }
+        }
+
+        int[] numbers = new int[10];
+        for(int ix = 0; ix < numbers.length; ix++) {
+            numbers[ix] = ix * 2;
+        }
+
+        int result = numbers[3];
+
+
+        for (int index = 0 ; index < instructors.length; index++) {
+            System.out.println(instructors[index]);
+        }
+
+        for (int i = nums.length - 1; i >= 0; i--) {
+            nums[i] = nums[i] * 2;
+        }
+
+        for (int i = 0; i < instructors.length; i++) {
+            System.out.println(instructors[i]);
+            i++;
+            if ((i + 1) < instructors.length) {
+                System.out.println(instructors[i + 1]);
+            }
+        }
+
     }
+
 }
