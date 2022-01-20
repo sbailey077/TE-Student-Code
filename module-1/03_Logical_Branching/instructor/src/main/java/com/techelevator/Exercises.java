@@ -246,6 +246,7 @@ public class Exercises {
      yourCakeAndEatItToo(11.00, false) → "special"
      */
     public String yourCakeAndEatItToo(double mealAmount, boolean isBirthday) {
+
 		/*
 			Trying to determine what free dessert the customer gets
 			The type of free dessert is based on the price of meal
