@@ -28,17 +28,34 @@ public class MartianWeight {
 		System.out.print("Please enter your weight on Earth in lbs: ");
 		String userEnteredWeight = userInput.nextLine();
 
-		double earthWeight = Double.parseDouble(userEnteredWeight);
-
-		// Calculate the Mars weight
-
-		double marsWeight = earthWeight * 0.378;
+		String[] earthWeightArray = userEnteredWeight.split(" ");
 
 		System.out.println();
 
-		// Print it out to the user
+		double earthWeight1 = Double.parseDouble(earthWeightArray[0]);
 
-		System.out.print((int)earthWeight +" lbs. on Earth is " + (int)marsWeight + " lbs on Mars.");
+		double earthWeight2 = Double.parseDouble(earthWeightArray[1]);
+
+		double earthWeight3 = Double.parseDouble(earthWeightArray[2]);
+
+		// Calculate the Mars weights
+
+		double marsWeight1 = earthWeight1 * 0.378;
+
+		double marsWeight2 = earthWeight2 * 0.378;
+
+		double marsWeight3 = earthWeight3 * 0.378;
+
+		System.out.println((int)earthWeight1 + " lbs. on Earth is " + (int)marsWeight1 + " lbs. on Mars.");
+		System.out.println((int)earthWeight2 + " lbs. on Earth is " + (int)marsWeight2 + " lbs. on Mars.");
+		System.out.println((int)earthWeight3 + " lbs. on Earth is " + (int)marsWeight3 + " lbs. on Mars.");
+
+
+
+
+
+
+
 	}
 
 }
