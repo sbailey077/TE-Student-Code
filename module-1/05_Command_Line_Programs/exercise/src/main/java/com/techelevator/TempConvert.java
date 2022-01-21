@@ -28,10 +28,10 @@ public class TempConvert {
 
 		String newUnit = "C";
 
-		if (userEnteredUnit.matches("C")) {
+		if (userEnteredUnit.equalsIgnoreCase("C")) {
 			newTemperature = initialTemperature * 1.8 + 32;
 			newUnit = "F";
-		} else if (userEnteredUnit.matches("F")) {
+		} else if (userEnteredUnit.equalsIgnoreCase("F")) {
 			newTemperature = (initialTemperature - 32) / 1.8;
 		}
 

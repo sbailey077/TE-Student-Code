@@ -24,10 +24,10 @@ public class LinearConvert {
 
 		double newLength = 0;
 
-		if (userEnteredUnits.matches("m")) {
+		if (userEnteredUnits.equalsIgnoreCase("m")) {
 			newLength = initialLength * 3.2808399;
 			newUnit = "f";
-		} else if (userEnteredUnits.matches("f")) {
+		} else if (userEnteredUnits.equalsIgnoreCase("f")) {
 			newLength = initialLength * 0.3048;
 		} else {
 			newLength = 0;
