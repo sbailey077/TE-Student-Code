@@ -27,13 +27,13 @@ public class TempConvert {
 		double newTemperature = 0;
 
 		String newUnit = "C";
+
 		if (userEnteredUnit.matches("C")) {
 			newTemperature = initialTemperature * 1.8 + 32;
 			newUnit = "F";
 		} else if (userEnteredUnit.matches("F")) {
 			newTemperature = (initialTemperature - 32) / 1.8;
 		}
-
 
 		System.out.print(userEnteredTemperature + userEnteredUnit + " is " + (int)newTemperature + newUnit);
 
