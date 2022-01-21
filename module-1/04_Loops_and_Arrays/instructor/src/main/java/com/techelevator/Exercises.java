@@ -61,7 +61,7 @@ public class Exercises {
 	 rotateLeft3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] rotateLeft3(int[] nums) {
-		return new int[] {};
+		return new int[] { nums[1], nums[2], nums[0]};
 	}
 
 	/*
@@ -140,7 +140,21 @@ public class Exercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
-		return false;
+		boolean doesHave22 = false;
+
+		// for each number in the array,
+		for (int i = 0; i < nums.length - 1; i++) {
+			// if it is a 2
+			if (nums[i] == 2) {
+				// is the next one also a 2
+				if (nums[i + 1] == 2) {
+					doesHave22 = true;
+				}
+			}
+		}
+		// If the above then return TRUE, otherwise return FALSE
+
+		return doesHave22;
 	}
 	
 	/*
