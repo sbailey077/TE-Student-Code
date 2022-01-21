@@ -199,6 +199,71 @@ public class ArraysAndLoops {
             }
         }
 
+        /*
+            This is a
+            multiple line
+            comment
+         */
+
+        // this is a single line only comment
+
+        /*
+            Basic for loop
+         */
+        // a variable to count ; boolean condition ; change )
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
+        }
+
+        int[] arrayOfNums = new int[] { 10, 20, 30 ,40, 50, 60, 70, 80, 90, 100 };
+
+        /*
+            Basic loop over an array
+         */
+        for (int i = 0; i < arrayOfNums.length; i++) {
+            System.out.println( arrayOfNums[i] );
+        }
+
+        /*
+            print the numbers, but if a number is multiple of 25 and the next value is
+            multiple of 30 then we will skip both values
+         */
+        for (int n = 0; n < arrayOfNums.length; n++) {
+            if ( (n < arrayOfNums.length - 1)
+                    && (arrayOfNums[n] % 25 == 0 && arrayOfNums[ n + 1 ] % 30 == 0) ) {
+                n++;
+            } else {
+                System.out.println(arrayOfNums[n]);
+            }
+
+        }
+
+        /*
+            print all the numbers, but skip just 50
+
+            continue - ends the current iteration of the loop, but then continues
+                       the rest of the loop
+         */
+        for (int n = 0; n < arrayOfNums.length; n++) {
+            if (arrayOfNums[n] == 50) {
+                continue;
+            }
+            System.out.println(arrayOfNums[n]);
+        }
+
+
+        /*
+            print all the numbers, but stop at 50
+
+            break - immediately ends the loop
+         */
+        for (int n = 0; n < arrayOfNums.length; n++) {
+            if (arrayOfNums[n] == 50) {
+                break;
+            }
+            System.out.println(arrayOfNums[n]);
+        }
+
     }
 
 }
