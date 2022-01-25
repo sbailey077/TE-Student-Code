@@ -44,7 +44,13 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
+		// 1. Get the first 2 characters of the out string
+		String firstTwoLetters = out.substring(0, 2);
+		// 2. Get the last 2 characters of the out string
+		String lastTwoLetters = out.substring(2);
+		// 3. put together the first2 + word + last2
+		String combined = firstTwoLetters + word + lastTwoLetters;
+		return combined;
 	}
 
 	/*
@@ -315,7 +321,18 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		// 1. Loop through ever character in the string
+		// 2. If characters 01,45,etc. Add the characters to a return string otherwise skip them
+		String newString = "";
+
+		for (int i = 0; i < str.length(); i += 4) {
+			newString += String.valueOf(str.charAt(i));
+			if ( (i + 1) < str.length()) {
+				newString += String.valueOf(str.charAt(i + 1));
+			}
+		}
+
+		return newString;
 	}
 
 	/*
