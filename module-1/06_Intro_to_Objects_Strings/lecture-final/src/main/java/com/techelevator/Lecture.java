@@ -1,15 +1,65 @@
 package com.techelevator;
 
+import java.util.Locale;
+
 public class Lecture {
 
+
 	public static void main(String[] args) {
+
 
 
 		System.out.println("************************************");
 		System.out.println("******    CREATING OBJECTS    ******");
 		System.out.println("************************************");
 
+		/*
+			1. Declare a variable to hold the object
+			2. Instantiate (create) a new copy of the object from the class using the new keyword
+			3. Initialize the object with the starting values
+		 */
+		Cake chocolateCake = new Cake("Chocolate", true);
+		/*  Cake strawberryCake = new Cake("Strawberry", false) */
+		Cake strawberryCake = new Cake("Strawberry", false);
 
+		/*
+			Each object is distinct so changing one does not change the others
+		 */
+		chocolateCake.setIcingColor("Blueberry");
+
+		/*
+			All classes define a Data Type, so we can use them as variables,
+			Arrays, or pass them to or from methods
+		 */
+
+		Cake[] cakes = new Cake[2];
+		cakes[0] = chocolateCake;
+		cakes[1]  = strawberryCake;
+
+
+		/*
+			primitive data types (value types)  are stored on the Stack
+		 */
+		int i = 10;
+		boolean isRed = true;
+		double pi = 3.14;
+
+		/*
+			Reference Types are stored on the heap and a reference to the location
+			where they are stored on the heap is stored on the stack
+		 */
+		String greeting = "Hello";
+		int[] scores = new int[15];
+
+		int x = 10;
+		int y = x;
+		x = 20;
+
+		int[] numbers = new int[]{ 10, 20, 30};
+		int[] moreNumbers = numbers;
+
+		moreNumbers[0] = 100;
+		numbers[1] = 200;
 
 
 
@@ -24,8 +74,19 @@ public class Lecture {
 		 * is not the case for most classes */
 
 		/* create an new instance of String using a literal */
+		String greetings = "Hello ";
+		/* String greetings = new String("Hello"); */
 
-		
+		/*
+			Strings are immutable, meaning that once created the value can never be changed
+		 */
+		String greetingsUpperCased = greetings.toUpperCase();
+
+		String bootcampName = "Tech Elevator";
+		// String methods don't change the original String, but create a new String with the change
+		bootcampName.toUpperCase();
+		// We must capture the return of the new changed String to use it
+		String bootcampUserCase = bootcampName.toUpperCase();
 
 
 		System.out.println();
@@ -67,6 +128,38 @@ public class Lecture {
 		System.out.println("*******************************");
 		System.out.println();
 
+		String name = "Tech Elevator";
+
+		// Get the length()
+		int length = name.length();
+		// Can get the character at a specific index
+		System.out.println( name.charAt(3) );
+
+		for (int n = 0; n < name.length(); n++) {
+			System.out.println( name.charAt(n) );
+		}
+
+		// Substring = gets a portion of the string
+		// ( startingIndex-Inclusive,  endingIndex-Exclusive)
+		String subString = name.substring(5, 9);
+
+		// If only give it a starting index, then gets from there to the rest of the string
+		String subStringToEnd = name.substring(5);
+
+		if ( name.contains("Elev")) {
+			System.out.println("This string contains Elev");
+		}
+
+		System.out.println( name.startsWith("Tech") );
+		System.out.println( name.endsWith("vator") );
+
+		// Index of returns the first index of a character
+		System.out.println(  name.indexOf("e") );
+
+		String replace = name.replace("Elevator", "Escalator");
+
+		// Split breaks a string into an array "split" on the specific character
+		String[] parts = name.split("e");
 
 		/* Other commonly used methods:
 		 *
@@ -81,5 +174,19 @@ public class Lecture {
 		 * trim
 		 */
 
+		/*
+			Static methods like valueOf() and join() are available on the Data Type and not the objects
+		 */
+		int someNumber = 13;
+		String numberAsString = String.valueOf(someNumber);
+
+		/*
+			Join - joins together multiple strings split by a delimiter
+			String.join(deliminter, string1, string2, ...)
+		 */
+
+		String countDown = String.join(" --> ", "Five", "Four",
+				"Three", "Two", "One");
+		System.out.println(countDown);
 	}
 }
