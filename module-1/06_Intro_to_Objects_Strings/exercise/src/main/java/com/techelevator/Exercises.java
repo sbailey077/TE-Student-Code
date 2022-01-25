@@ -397,14 +397,19 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		//1. check to see what the last two elements of the string are
-		String lastTwo = str.substring(str.length() - 2, str.length() - 1);
-
 		int count = 0;
 
-		for (int i = 0; i < str.length() - 3; i += 2) {
-			if 
+		if (str.length() < 2) {
+			return 0;
 		}
+		String lastTwo = str.substring(str.length() - 2);
+		
+		for (int i = 0; i < str.length() - 2; i++) {
+			if ((str.substring(i, i + 2).equals(lastTwo))) {
+				count++;
+			}
+		} return count;
+
 	}
 
 	/*
@@ -415,7 +420,33 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+
+		boolean firstX = false;
+		boolean lastX = false;
+
+		if (str.length() == 0) {
+			return "";
+		} else if (str.length() == 1) {
+			return str;
+		} else if (str.valueOf(str.charAt(0)).equals("x") && str.valueOf(str.charAt(str.length() - 1)).equals("x")) {
+			firstX = true;
+			lastX = true;
+		} else if (str.valueOf(str.charAt(0)).equals("x")) {
+			firstX = true;
+		} else if (str.valueOf(str.charAt(str.length() - 1)).equals("x")) {
+			lastX = true;
+		}
+
+		str = str.replace("x", "");
+
+		if (firstX == true && lastX == true) {
+			return "x" + str + "x";
+		} else if (firstX == true) {
+			return "x" + str;
+		} else if (lastX == true) {
+			return str + "x";
+		}
+		return str;
 	}
 
 	/*
