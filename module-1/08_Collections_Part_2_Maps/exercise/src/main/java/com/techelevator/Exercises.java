@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Locale;
@@ -195,12 +196,12 @@ public class Exercises {
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
 		Map<String, Integer> countOfWords = new HashMap<String, Integer>();
-		int count = 0;
+
 		for (String index : words) {
 			if (countOfWords.containsKey(index)) {
-				countOfWords.put(index, count++);
+				countOfWords.put(index, countOfWords.get(index) + 1);
 			} else {
-				countOfWords.put(index, count);
+				countOfWords.put(index, 1);
 			}
 		} return countOfWords;
 	}
@@ -217,7 +218,15 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> countOfIntegers = new HashMap<Integer, Integer>();
+
+		for (Integer i : ints) {
+			if (countOfIntegers.containsKey(i)) {
+				countOfIntegers.put(i, countOfIntegers.get(i) + 1);
+			} else {
+				countOfIntegers.put(i, 1);
+			}
+		} return countOfIntegers;
 	}
 
 	/*
@@ -230,7 +239,15 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String, Boolean> containsLetters = new HashMap<String, Boolean>();
+
+		for (String index : words) {
+			if (containsLetters.containsKey(index)) {
+				containsLetters.put(index, true);
+			} else {
+				containsLetters.put(index, false);
+			}
+		} return containsLetters;
 	}
 
 	/*
@@ -245,7 +262,14 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
-		return null;
+
+		for (Map.Entry<String, Integer> skuIndex : remoteWarehouse.entrySet() ) {
+			if (mainWarehouse.containsKey(skuIndex.getKey())) {
+				mainWarehouse.put(skuIndex.getKey(), skuIndex.getValue() + mainWarehouse.get(skuIndex.getKey()));
+			} else {
+				mainWarehouse.put(skuIndex.getKey(), skuIndex.getValue());
+			}
+		} return mainWarehouse;
 	}
 
 	/*
@@ -264,7 +288,22 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
+		Map<String, Integer> lastTwo = new HashMap<String, Integer>();
+
+		for (String index : words) {
+			if (index.length() < 2) {
+				lastTwo.put(index, 0);
+			}
+			int counter = 0;
+			String last2 = index.substring(index.length() - 2);
+			for (int i = 0; i < index.length() - 2; i++) {
+				if (index.substring(i, i + 2).equals(last2)){
+					counter++;
+
+				} lastTwo.put(index, counter);
+			}
+		} return lastTwo;
+
 	}
 
 }
