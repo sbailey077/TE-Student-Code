@@ -16,9 +16,17 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
+<<<<<<< HEAD
 		List<String> listFromArray = new ArrayList<String>();
 
 		for(String currentStringInArray : stringArray) {
+=======
+		//first make a new list to return
+		List<String> listFromArray = new ArrayList<String>();
+
+		//loop over the given array and add each string to the list
+		for(String currentStringInArray : stringArray){
+>>>>>>> ce0ff0efe89f6d983fb927569936bfc8451d1201
 			listFromArray.add(currentStringInArray);
 		}
 
@@ -44,6 +52,7 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
+<<<<<<< HEAD
 		List<String> no4LetterWordsList = new ArrayList<String>();
 
 		for (String currentString : stringArray) {
@@ -51,7 +60,21 @@ public class Exercises {
 				no4LetterWordsList.add(currentString);
 			}
 		} return no4LetterWordsList;
+=======
+
+		List<String> noFourLetterWordsList = new ArrayList<String>();
+
+		for(String currentString : stringArray){
+
+			//do not add words that have a length of 4
+			if(currentString.length() != 4){
+				noFourLetterWordsList.add(currentString);
+			}
+		}
+		return noFourLetterWordsList;
+>>>>>>> ce0ff0efe89f6d983fb927569936bfc8451d1201
 	}
+
 
 	/*
 	 Given an array of ints, divide each int by 2, and return an ArrayList of Doubles.
@@ -131,6 +154,7 @@ public class Exercises {
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
+<<<<<<< HEAD
 		List<String> ourFizzBuzzList = new ArrayList<String>();
 
 		for (Integer i : integerArray) {
@@ -147,6 +171,40 @@ public class Exercises {
 		} return ourFizzBuzzList;
 
 
+=======
+
+		//make a new list
+
+		List<String> ourFizzBuzzList = new ArrayList<String>();
+
+		//look at each element in the integerArray
+
+		for(int i: integerArray){
+			//check if current element is a multiple of 3 and 5
+			if((i % 3 == 0) && (i % 5 == 0)){
+				ourFizzBuzzList.add("FizzBuzz");
+			}
+			//check if current element is a multiple of 3
+			else if(i % 3 == 0){
+				ourFizzBuzzList.add("Fizz");
+			}
+			//check if current element is a multiple of 5
+			else if(i % 5 == 0){
+				ourFizzBuzzList.add("Buzz");
+			}
+
+			else {
+				//if current value is primitive (int) use:
+				String intToString = String.valueOf(i);
+
+				//if current value is wrapper (Integer) use:
+				//String intToString = i.toString();
+				ourFizzBuzzList.add(intToString);
+			}
+		}
+
+		return ourFizzBuzzList;
+>>>>>>> ce0ff0efe89f6d983fb927569936bfc8451d1201
 	}
 
 	/*
