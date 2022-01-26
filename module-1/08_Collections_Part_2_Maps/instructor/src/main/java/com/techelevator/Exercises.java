@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Exercises {
@@ -34,6 +35,10 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
+		Map<String, String> groupNames = new HashMap<String, String>();
+		groupNames.put("rhino", "Crash");
+
+		String animalNameAsKey = animalName.toLowerCase();
 		return null;
 	}
 
@@ -74,7 +79,23 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+
+		// If Peter has > 0 and Paul has < 1000
+		// Get half of Peters money
+		// Update Peters money to be half of peters money
+		// Update paul money to be half of pauls money
+		// return the updated map
+		int petersMoney = peterPaul.get("Peter");
+		int paulsMoney = peterPaul.get("Paul");
+
+		if ( petersMoney > 0 && paulsMoney < 1000) {
+			int halfOfPetersMoney = petersMoney / 2;
+			peterPaul.put("Paul", paulsMoney + halfOfPetersMoney);
+			peterPaul.put("Peter", petersMoney - halfOfPetersMoney);
+		}
+
+
+		return peterPaul;
 	}
 
 	/*

@@ -84,6 +84,11 @@ public class Lecture_Set {
             System.out.println(instructor);
         }
 
+        // Creating a new list
+        List<String> orderedUniqueList = new ArrayList<String>();
+        // Adding the entire SET to the list at once
+        orderedUniqueList.addAll(instructorSet);
+
     }
 
 

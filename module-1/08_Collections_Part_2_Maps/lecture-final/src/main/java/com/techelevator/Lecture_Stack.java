@@ -76,8 +76,11 @@ public class Lecture_Stack {
         for (int num : nums) {
             numStack.push(num);
         }
+        int[] reversedNums = new int[nums.length];
+        int i = 0;
         while ( !numStack.isEmpty() ) {
-            System.out.println(numStack.pop());
+//            System.out.println(numStack.pop());
+            reversedNums[i++] = numStack.pop();
         }
 
     }
