@@ -48,6 +48,7 @@ public class Lecture_Queue {
             by looping over them with a while() loop that continues until
             isEmpty() returns true
          */
+
         while ( !tasks.isEmpty() ) {
 
             /*
