@@ -32,6 +32,15 @@ public class Bus {
         this.routeName = cleanRouteName(routeName);
     }
 
+    public Bus(String routeName, int startingGas) {
+        this.routeName = cleanRouteName(routeName);
+        this.gallonsOfGas = startingGas;
+    }
+
+    public Bus(int startingGas) {
+        this.gallonsOfGas = startingGas;
+    }
+
     /*
         GETTERS AND SETTERS
      */
