@@ -12,6 +12,13 @@ public class Egg implements Sellable{
         price = new BigDecimal("0.25");
     }
 
+    public static double calculateTotalCost(int count, double price) {
+        int dozens = count / 12;
+        double total = (price * count) - ( dozens * .25);
+        return total;
+    }
+
+
     @Override
     public String getName() {
         return name;

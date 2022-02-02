@@ -5,7 +5,22 @@ public class OldMacdonald {
 
 		FarmAnimal[] farmAnimals = new FarmAnimal[] { new Cow(), new Chicken(), new Pig()};
 
-		Singable[] aBunchOfSingables = new Singable[]{new Cow(), new Chicken(), new Pig(), new Tractor()};
+
+		Cow cow = new Cow();
+		cow.wake();
+
+		Chicken chicken = new Chicken();
+		chicken.sleep();
+
+		Cat cat = new Cat();
+		cat.wake();
+
+		/*
+			FarmAnimal cannot be instantiated because it is an abstract class
+		 */
+		//FarmAnimal farmAnimal = new FarmAnimal("Sheep", "Baa");
+
+		Singable[] aBunchOfSingables = new Singable[]{cow, chicken, new Pig(), new Tractor(), cat};
 
 		for (Singable currentSingableObj : aBunchOfSingables) {
 			String name = currentSingableObj.getName();
@@ -26,5 +41,12 @@ public class OldMacdonald {
 			System.out.println(item.getName());
 			System.out.println("$" + item.getPrice());
 		}
+
+
+
+
+		System.out.println( Egg.calculateTotalCost(12, 1) );
+
+
 	}
 }
