@@ -30,6 +30,7 @@ public class Cat {
     The .equals and .hashCode() Overrides allow this class to be
     assert equals with Assert.assertEquals().
      */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
