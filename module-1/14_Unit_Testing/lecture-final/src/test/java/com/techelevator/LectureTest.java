@@ -187,6 +187,7 @@ public class LectureTest {
         custom asserts
          */
         assertDogs(dog, otherDog);
+
     }
 
     private void assertDogs(Dog dog, Dog other) {
@@ -234,5 +235,6 @@ public class LectureTest {
         int actualNewBalance = lecture.getBalance();
 
         Assert.assertEquals( expectedNewBalance, actualNewBalance);
+
     }
 }
