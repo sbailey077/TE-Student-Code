@@ -1,11 +1,20 @@
 package com.techelevator;
 
-import java.util.HashMap;
+import com.techelevator.inventory.Inventory;
+import com.techelevator.inventory.Item;
+
 import java.util.Map;
 import java.util.Scanner;
 
 public class Application {
 
+    /*
+        The Store
+            Holds the Inventory
+        Getting User Input
+        Workflow
+
+     */
     public static void main(String[] args) {
 
         Scanner userInput = new Scanner(System.in);
@@ -22,7 +31,7 @@ public class Application {
             System.out.print( mapEntry.getValue().getSku() );
             System.out.print( " : " + mapEntry.getValue().getName() );
             System.out.print( " ( " + mapEntry.getValue().getDescription() + " ) ");
-            System.out.println( " $" + mapEntry.getValue().getPrice() );
+            System.out.println( " $" + mapEntry.getValue().getTotalPrice() );
 
         }
 
