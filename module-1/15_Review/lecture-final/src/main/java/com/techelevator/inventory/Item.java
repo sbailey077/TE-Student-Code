@@ -1,6 +1,6 @@
-package com.techelevator;
+package com.techelevator.inventory;
 
-public class Item {
+public abstract class Item {
 
     private double price;
     private String name;
@@ -8,10 +8,12 @@ public class Item {
     private String sku;
     private boolean isPerishable;
 
-    public Item(String sku) {
+    public Item(String sku, String name) {
         this.sku = sku;
+        this.name = name;
     }
 
+    public abstract double getTotalPrice();
 
     public double getPrice() {
         return price;
