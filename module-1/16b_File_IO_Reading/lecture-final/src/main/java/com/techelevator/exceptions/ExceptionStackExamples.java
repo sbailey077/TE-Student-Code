@@ -6,8 +6,9 @@ public class ExceptionStackExamples {
 
     public static void main(String[] args) {
 
+
 //        try {
-            methodA();
+        String upperCased = methodA("abc");
 //        } catch (NullPointerException e) {
 //            System.out.println("String was null");
 //        }
@@ -15,12 +16,12 @@ public class ExceptionStackExamples {
     }
 
 
-    private static void methodA() {
-        methodB();
+    private static String methodA(String str) {
+        return methodB(str);
     }
 
-    private static void methodB() {
-        methodC();
+    private static String methodB(String str) {
+        return methodC(str);
     }
 
     /*
@@ -28,9 +29,9 @@ public class ExceptionStackExamples {
     call stack.  They do not need to be caught here, but can be caught in methods
     that call this method.
      */
-    private static void methodC() {
-        String str = null;
-        str.toUpperCase();
+    private static String methodC(String str) {
+        Integer.parseInt(str);
+        return str.toUpperCase();
     }
 
 }

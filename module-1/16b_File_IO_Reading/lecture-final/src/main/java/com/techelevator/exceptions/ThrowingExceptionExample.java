@@ -7,6 +7,7 @@ public class ThrowingExceptionExample {
 
         try {
             passesOnTheCheckedException();
+            System.out.println("Line one");
         } catch (IncorrectStringValueException e) {
             System.out.println("Checked exception was caught");
         }

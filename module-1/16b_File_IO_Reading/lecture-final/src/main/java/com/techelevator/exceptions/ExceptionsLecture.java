@@ -8,10 +8,22 @@ public class ExceptionsLecture {
 
     public static void main(String[] args) {
 
-        System.out.print("Input a whole number >>> ");
-        String userSelection = input.nextLine();
+        boolean hasNumber = false;
+        int number = 0;
 
-        int number = Integer.parseInt(userSelection);
+        while(!hasNumber) {
+
+            System.out.print("Input a whole number >>> ");
+            String userSelection = input.nextLine();
+
+            try {
+                number = Integer.parseInt(userSelection);
+                System.out.println("This line will not print if a NumberFormatException is thrown");
+                hasNumber = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number!");
+            }
+        }
 
 
         System.out.println("Your number was " + number);
