@@ -32,7 +32,7 @@ public class Application {
         }
 
         menu.showWelcomeMessage();
-  
+
 
         Map<String, Item> inventory = inventoryBuilder.getInventory();
 
