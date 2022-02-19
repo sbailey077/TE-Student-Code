@@ -3,6 +3,6 @@
 SELECT * FROM movie WHERE title = 'Avengers: Infinity War';
 SELECT * FROM movie_actor WHERE movie_id = (SELECT movie_id FROM movie WHERE title = 'Avengers: Infinity War');
 
-
+DELETE FROM movie_actor WHERE actor_id = (SELECT actor_id WHERE movie_id = 299536);
 
 
