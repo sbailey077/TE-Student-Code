@@ -1,0 +1,37 @@
+person
+    person_id
+    first_name
+    last_name
+    date_modified
+    
+address
+    address_id
+    address_type
+    type_description
+    line_one
+    line_two
+    city
+    district
+    postal_code
+    country_code
+
+person_address
+    PK FK person_id
+    PK FK address_id 
+
+phone
+    phone_id
+    number_type
+    type_description
+    phone_number
+
+person_phone
+   PK FK person_id
+   PK FK phone_id 
+
+email
+    email_id
+    person_id
+    email
+    email_type
+    type_description

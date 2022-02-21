@@ -1,13 +1,15 @@
 -- ***************************************
 --   DDL (Data Definition Language)
 -- ***************************************
-
+CREATE DATABASE DDLExamples;
 DROP DATABASE DDLExamples;
+
+
 CREATE DATABASE DDLExamples;
 
 -- Create a Table called ourtable with an id (primary key) and name varchar(32)
 CREATE TABLE ourtable (
-        id bigint primary key,
+        id bigint,
         name varchar(32)
 );
 
@@ -62,7 +64,7 @@ INSERT INTO ourtable (id, name) VALUES (DEFAULT, 'Matt');
 INSERT INTO ourtable (name) VALUES ('John');
 
 -- Insert into the table with a sequence with a manual value  (CHANGE XX to the next correct value)
-INSERT INTO ourtable (id, name) VALUES ( 5 , 'Dan');
+INSERT INTO ourtable (id, name) VALUES ( 9 , 'Dan');
 
 -- Try to insert another value using DEFAULT or a SubQuery or by Omitting the column in the insert
 INSERT INTO ourtable (id, name) VALUES (DEFAULT, 'Vinny');
