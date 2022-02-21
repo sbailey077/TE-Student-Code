@@ -53,6 +53,6 @@ CREATE TABLE person_phone (
 	person_id bigint not null,
 	phone_id bigint not null,
 	
-	constraint fk_person_phone_person_id 
+
 )
 
