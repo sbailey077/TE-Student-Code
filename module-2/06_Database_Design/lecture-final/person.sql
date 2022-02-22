@@ -1,5 +1,6 @@
 -- CREATE DATABASE contacts;
 
+DROP TABLE IF EXISTS person_phone;
 DROP TABLE IF EXISTS person_address;
 DROP TABLE IF EXISTS address;
 DROP TABLE IF EXISTS person;
@@ -52,7 +53,6 @@ CREATE TABLE phone (
 CREATE TABLE person_phone (
 	person_id bigint not null,
 	phone_id bigint not null,
-	
+);
 
-)
 
