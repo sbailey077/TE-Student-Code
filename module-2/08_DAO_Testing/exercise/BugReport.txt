@@ -1,43 +1,43 @@
 Bug 1
 -----
 Test that demonstrates problem:
-
+getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee()
 Expected output:
-
+getTimesheetsByEmployeeId() was expected to return a list of timesheets size 2.
 Actual output:
-
+getTimesheetsByEmployeeId() returned a list of timesheets size 1.
 How did you fix this bug?
-
+In the getTimesheetsByEmployeeId() method if (results.next()) was replaced with while (results.next())
 
 Bug 2
 -----
 Test that demonstrates problem:
-
+getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project()
 Expected output:
-
+getTimesheetsByProjectId() was expected to return a list of timesheets size 3.
 Actual output:
-
+getTimesheetsByProjectId() returned a list of timesheets size 2.
 How did you fix this bug?
-
+In the getTimesheetsByProjectId() method "WHERE employee_id = ? " was changed to "WHERE project_id = ? ".
 
 Bug 3
 -----
 Test that demonstrates problem:
-
+updated_timesheet_has_expected_values_when_retrieved()
 Expected output:
-
+updateTimesheet() should update all columns in the Timesheet object.
 Actual output:
-
+updateTimesheet() did not update the billable column.
 How did you fix this bug?
-
+"billable = ?" was added to the SET statement and isBillable() was added to jdbcTemplate.update().
 
 Bug 4
 -----
 Test that demonstrates problem:
-
+getBillableHours_returns_correct_total()
 Expected output:
-
+Expected getBillableHours() to return 0 when billable == false.
 Actual output:
-
+getBillableHours() returns value > 0 when billable == false.
 How did you fix this bug?
-
+added "WHERE billable = true" to sql statement.
