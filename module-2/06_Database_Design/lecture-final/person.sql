@@ -1,5 +1,9 @@
 -- CREATE DATABASE contacts;
 
+<<<<<<< HEAD
+=======
+DROP TABLE IF EXISTS email;
+>>>>>>> 08cbe9c233337fe9cd0796c2b07e915e65ead1b1
 DROP TABLE IF EXISTS person_phone;
 DROP TABLE IF EXISTS person_address;
 DROP TABLE IF EXISTS address;
@@ -53,6 +57,28 @@ CREATE TABLE phone (
 CREATE TABLE person_phone (
 	person_id bigint not null,
 	phone_id bigint not null,
+<<<<<<< HEAD
 );
 
+=======
+	
+	constraint fk_person_phone_person_id foreign key (person_id) references person(person_id),
+	constraint fk_person_phone_phone_id foreign key (phone_id) references phone(phone_id),
+	constraint pk_person_phone primary key (person_id, phone_id)
+
+);
+
+CREATE TABLE email (
+	email_id serial primary key,
+	person_id bigint not null,
+	email varchar(255) not null,
+	email_type varchar(20) not null,
+	type_description varchar(100),
+	
+	constraint fk_email_person_id foreign key (person_id) references person(person_id),
+	constraint chk_email_type check ( email_type IN ('PERSONAL', 'WORK', 'STUDENT', 'OTHER')),
+	constraint chk_email_type_description check ( (email_type = 'OTHER' AND type_description IS NOT NULL) 
+				OR (email_type != 'OTHER' AND type_description IS NULL) )
+);
+>>>>>>> 08cbe9c233337fe9cd0796c2b07e915e65ead1b1
 
