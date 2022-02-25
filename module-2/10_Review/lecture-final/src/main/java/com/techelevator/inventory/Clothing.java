@@ -8,6 +8,10 @@ public class Clothing extends Item implements Taxable {
         super(sku, name);
     }
 
+    public Clothing(double price, String name, String description, String sku, boolean isPerishable) {
+        super(price, name, description, sku, isPerishable);
+    }
+
     @Override
     public double getTotalPrice() {
         return getPrice() + (getPrice() * getTaxRate());
@@ -21,5 +25,10 @@ public class Clothing extends Item implements Taxable {
     @Override
     public void setTaxRate(double taxRate) {
         this.taxRate = taxRate;
+    }
+
+    @Override
+    public String getTypeCode() {
+        return "C";
     }
 }

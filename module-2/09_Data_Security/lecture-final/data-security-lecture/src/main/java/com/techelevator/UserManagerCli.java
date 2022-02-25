@@ -101,6 +101,7 @@ public class UserManagerCli {
         System.out.print("Username: ");
         System.out.flush();
         String username = userInput.nextLine();
+
         System.out.print("Password: ");
         System.out.flush();
         String password = userInput.nextLine();
