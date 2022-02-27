@@ -1,5 +1,7 @@
 package com.techelevator.inventory;
 
+import java.util.Objects;
+
 public class Pet extends Item implements Shippable {
 
     private String petName;
@@ -15,6 +17,12 @@ public class Pet extends Item implements Shippable {
 
     public Pet(String sku, String name, int weight) {
         super(sku, name);
+        this.weight = weight;
+    }
+
+    public Pet(double price, String name, String description, String sku, boolean isPerishable, String petName, int weight) {
+        super(price, name, description, sku, isPerishable);
+        this.petName = petName;
         this.weight = weight;
     }
 
@@ -87,4 +95,22 @@ public class Pet extends Item implements Shippable {
         return this.weight;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Pet pet = (Pet) o;
+        return isAquatic == pet.isAquatic && weight == pet.weight && Objects.equals(petName, pet.petName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), petName, isAquatic, weight);
+    }
+
+    @Override
+    public String getTypeCode() {
+        return "P";
+    }
 }

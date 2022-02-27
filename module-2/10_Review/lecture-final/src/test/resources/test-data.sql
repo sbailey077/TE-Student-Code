@@ -53,7 +53,7 @@ INSERT INTO public.item(
 -- INSERT PETs
 INSERT INTO public.item(
 	item_id, type_code, sku, name, description, price, is_perishable)
-	VALUES (DEFAULT, 'P', 'P1', 'PetOne', 'PetOne Description', 10, true);
+	VALUES (DEFAULT, 'P', 'P1', 'PetOne', 'PetOne Description', 12, true);
 INSERT INTO public.pet(
 	pet_id, item_id, weight, pet_name)
 	VALUES (DEFAULT, CURRVAL('item_item_id_seq'), 10, 'PetOne Name');

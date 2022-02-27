@@ -1,5 +1,7 @@
 package com.techelevator.inventory;
 
+import java.util.Objects;
+
 public abstract class Item {
 
     private double price;
@@ -13,7 +15,16 @@ public abstract class Item {
         this.name = name;
     }
 
+    public Item(double price, String name, String description, String sku, boolean isPerishable) {
+        this.price = price;
+        this.name = name;
+        this.description = description;
+        this.sku = sku;
+        this.isPerishable = isPerishable;
+    }
+
     public abstract double getTotalPrice();
+    public abstract String getTypeCode();
 
     public double getPrice() {
         return price;
@@ -50,5 +61,19 @@ public abstract class Item {
 
     public void setPerishable(boolean perishable) {
         isPerishable = perishable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Double.compare(item.price, price) == 0 && isPerishable == item.isPerishable && Objects.equals(name, item.name)
+                && Objects.equals(description, item.description) && Objects.equals(sku, item.sku);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(price, name, description, sku, isPerishable);
     }
 }
