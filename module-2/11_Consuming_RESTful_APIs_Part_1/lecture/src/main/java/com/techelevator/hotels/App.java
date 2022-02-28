@@ -1,6 +1,8 @@
 package com.techelevator.hotels;
 
 import com.techelevator.hotels.model.Country;
+import com.techelevator.hotels.model.Hotel;
+import com.techelevator.hotels.model.Review;
 import com.techelevator.hotels.services.ConsoleService;
 import com.techelevator.hotels.services.HotelService;
 
@@ -30,17 +32,23 @@ public class App {
             consoleService.printMainMenu();
             menuSelection = consoleService.promptForMenuSelection();
             if (menuSelection == MENU_LIST_HOTELS) {
-                System.out.println("Not implemented");
+                Hotel[] hotels = hotelService.listHotels();
+                consoleService.printHotels(hotels);
             } else if (menuSelection == MENU_LIST_REVIEWS) {
-                System.out.println("Not implemented");
+                Review[] reviews = hotelService.listReviews();
+                consoleService.printReviews(reviews);
             } else if (menuSelection == MENU_SHOW_DETAILS_FOR_HOTEL_1) {
-                System.out.println("Not implemented");
+                Hotel hotelOne = hotelService.getHotelById(1);
+                consoleService.printHotel(hotelOne);
             } else if (menuSelection == MENU_SHOW_REVIEWS_FOR_HOTEL_1) {
-                System.out.println("Not implemented");
+                Review[] reviewsForHotelOne = hotelService.getReviewsByHotelId(1);
+                consoleService.printReviews(reviewsForHotelOne);
             } else if (menuSelection == MENU_LIST_HOTELS_WITH_3_STAR_RATING) {
-                System.out.println("Not implemented");
+                Hotel[] hotels = hotelService.getHotelsByStarRating(3);
+                consoleService.printHotels(hotels);
             } else if (menuSelection == MENU_PUBLIC_API_QUERY) {
-               System.out.println("Not implemented - Create a custom Web API query here");
+               Country country = hotelService.getWithCustomQuery();
+                System.out.println(country);
             } else if (menuSelection == MENU_EXIT) {
                 continue;
             } else {
