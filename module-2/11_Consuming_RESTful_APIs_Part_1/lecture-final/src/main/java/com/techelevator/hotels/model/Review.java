@@ -10,6 +10,7 @@ public class Review {
     private String author;
     private int stars;
 
+
     public int getHotelId() {
         return hotelId;
     }
@@ -58,7 +59,7 @@ public class Review {
                 "\n Hotel ID: " + hotelId +
                 "\n Title: " + title +
                 "\n Review: " + review +
-                "\n Author: " + author +
+                //"\n Author: " + author +
                 "\n Stars: " + stars;
     }
 }
