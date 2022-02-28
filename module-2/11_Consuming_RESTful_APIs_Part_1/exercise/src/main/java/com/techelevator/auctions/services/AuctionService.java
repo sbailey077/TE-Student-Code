@@ -23,13 +23,13 @@ public class AuctionService {
     }
 
     public Auction[] getAuctionsMatchingTitle(String title) {
-        String url = "http://localhost:3000/auctions?title_like=" + title;
+        String url = API_BASE_URL + "?title_like=" + title;
         Auction[] auctions = restTemplate.getForObject(url, Auction[].class);
         return auctions;
     }
 
     public Auction[] getAuctionsAtOrBelowPrice(double price) {
-        String url = "http://localhost:3000/auctions?currentBid_lte=" + price;
+        String url = API_BASE_URL + "?currentBid_lte=" + price;
         Auction[] auctions = restTemplate.getForObject(url, Auction[].class);
         return auctions;
     }
