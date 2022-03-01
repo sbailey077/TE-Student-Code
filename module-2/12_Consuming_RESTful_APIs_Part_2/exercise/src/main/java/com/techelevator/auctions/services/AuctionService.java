@@ -10,6 +10,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.techelevator.auctions.model.Auction;
 
+import java.util.stream.BaseStream;
+
 public class AuctionService {
 
     public static final String API_BASE_URL = "http://localhost:3000/auctions/";
@@ -17,18 +19,56 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
-        HttpHeaders 
-        return null;
+
+        HttpEntity entity = makeEntity(newAuction);
+
+        String url = API_BASE_URL;
+        Auction returnedAuction = null;
+
+        try {
+            returnedAuction = restTemplate.postForObject(url, entity, Auction.class);
+        } catch (RestClientResponseException e) {
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+
+        return returnedAuction;
     }
 
     public boolean update(Auction updatedAuction) {
-        // place code here
-        return false;
+
+        HttpEntity entity = makeEntity(updatedAuction);
+
+        boolean wasSuccessful = false;
+
+        try {
+            String url = API_BASE_URL + updatedAuction.getId();
+            restTemplate.put(url, entity);
+            wasSuccessful = true;
+        } catch (RestClientResponseException e) {
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+
+        return wasSuccessful;
     }
 
     public boolean delete(int auctionId) {
-        // place code here
-        return false;
+
+        String url = API_BASE_URL + auctionId;
+        boolean wasSuccessful = false;
+
+        try {
+            restTemplate.delete(url);
+            wasSuccessful = true;
+        } catch (RestClientResponseException e) {
+            BasicLogger.log(e.getRawStatusCode() + " : " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return wasSuccessful;
     }
 
     public Auction[] getAllAuctions() {
