@@ -17,7 +17,7 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
-        // place code here
+        HttpHeaders 
         return null;
     }
 
