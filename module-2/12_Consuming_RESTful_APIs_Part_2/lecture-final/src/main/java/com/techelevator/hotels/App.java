@@ -4,6 +4,7 @@ import com.techelevator.hotels.model.Hotel;
 import com.techelevator.hotels.model.Reservation;
 import com.techelevator.hotels.services.ConsoleService;
 import com.techelevator.hotels.services.HotelService;
+import org.springframework.web.client.ResourceAccessException;
 
 public class App {
 
@@ -43,11 +44,15 @@ public class App {
 
     private void handleListHotels() {
         // List all hotels
-        Hotel[] hotels = hotelService.listHotels();
-        if (hotels != null) {
-            consoleService.printHotels(hotels);
-        } else {
-            consoleService.printErrorMessage();
+        try {
+            Hotel[] hotels = hotelService.listHotels();
+            if (hotels != null) {
+                consoleService.printHotels(hotels);
+            } else {
+                consoleService.printErrorMessage();
+            }
+        } catch (ResourceAccessException e) {
+            consoleService.printConnectionError();
         }
     }
 
