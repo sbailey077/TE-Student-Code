@@ -133,4 +133,7 @@ public class ConsoleService {
         System.out.println("An error occurred. Check the log for details.");
     }
 
+    public void printConnectionError() {
+        System.out.println("Unable to connect to server.  Please try again later.");
+    }
 }
