@@ -28,5 +28,12 @@ public class AuctionController {
     }
 
     @RequestMapping(path = "", method = RequestMethod.POST)
-    public Auction
+    public Auction addAuction(@RequestBody Auction auction ) {
+        return dao.create(auction);
+    }
+
+    @RequestMapping(path = "/{title}", method = RequestMethod.GET)
+    public List<Auction> titleList(@RequestParam(defaultValue = "") String title ) {
+        
+    }
 }
