@@ -13,10 +13,10 @@ import org.springframework.web.client.RestTemplate;
 
 public class HotelService {
 
-    private static final String API_BASE_URL = "http://localhost:3000/";
+    private static final String API_BASE_URL = "http://localhost:8080/";
     private final RestTemplate restTemplate = new RestTemplate();
 
-    /**
+    /**https://te-mockauction-server.azurewebsites.net/students/1/hotels
      * Create a new reservation in the hotel reservation system
      */
     public Reservation addReservation(Reservation newReservation) {
