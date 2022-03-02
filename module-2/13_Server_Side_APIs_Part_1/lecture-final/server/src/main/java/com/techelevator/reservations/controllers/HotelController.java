@@ -5,10 +5,13 @@ import com.techelevator.reservations.dao.MemoryHotelDao;
 import com.techelevator.reservations.dao.MemoryReservationDao;
 import com.techelevator.reservations.dao.ReservationDao;
 import com.techelevator.reservations.model.Hotel;
+import com.techelevator.reservations.model.Reservation;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@RestController
 public class HotelController {
 
     private HotelDao hotelDao;
@@ -25,8 +28,29 @@ public class HotelController {
      * @return a list of all hotels in the system
      */
     @RequestMapping(path = "/hotels", method = RequestMethod.GET)
-    public List<Hotel> list() {
-        return hotelDao.list();
+    public List<Hotel> list(@RequestParam(required=false, defaultValue="") String city,
+                            @RequestParam(required=false, defaultValue="") String state) {
+
+        List<Hotel> filteredHotels = new ArrayList<Hotel>();
+        List<Hotel> hotels =  hotelDao.list();
+
+        if (city.length() == 0 && state.length() == 0) {
+            return hotels;
+        }
+
+        for (Hotel hotel: hotels) {
+            if (city.length() > 0) {
+                if (hotel.getAddress().getCity().equalsIgnoreCase(city)) {
+                    filteredHotels.add(hotel);
+                }
+            } else {
+                if (hotel.getAddress().getState().equalsIgnoreCase(state)) {
+                    filteredHotels.add(hotel);
+                }
+            }
+        }
+
+        return filteredHotels;
     }
 
     /**
@@ -40,4 +64,25 @@ public class HotelController {
         return hotelDao.get(id);
     }
 
+    @RequestMapping(path="/reservations", method=RequestMethod.GET)
+    public List<Reservation> listReservations() {
+        List<Reservation> reservationsReturnedFromDao = reservationDao.findAll();
+        return reservationsReturnedFromDao;
+    }
+
+    @RequestMapping(path="/reservations/{reservationId}", method=RequestMethod.GET)
+    public Reservation getReservation(@PathVariable int reservationId) {
+        Reservation reservationFromDao = reservationDao.get(reservationId);
+        return reservationFromDao;
+    }
+
+    @RequestMapping(path="/hotels/{id}/reservations", method=RequestMethod.GET)
+    public List<Reservation> listReservationsByHotel(@PathVariable("id") int hotelId) {
+        return reservationDao.findByHotel(hotelId);
+    }
+
+    @RequestMapping(path="/hotels/{id}/reservations", method=RequestMethod.POST)
+    public Reservation addReservation(@PathVariable int id, @RequestBody Reservation reservation) {
+        return reservationDao.create(reservation, id);
+    }
 }
