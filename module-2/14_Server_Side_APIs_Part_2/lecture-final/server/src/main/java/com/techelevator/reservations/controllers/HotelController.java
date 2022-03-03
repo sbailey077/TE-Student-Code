@@ -6,14 +6,18 @@ import com.techelevator.reservations.exception.HotelNotFoundException;
 import com.techelevator.reservations.exception.ReservationNotFoundException;
 import com.techelevator.reservations.model.Hotel;
 import com.techelevator.reservations.model.Reservation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.ResourceAccessException;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class HotelController {
+
 
     private HotelDao hotelDao;
     private ReservationDao reservationDao;
@@ -40,8 +44,12 @@ public class HotelController {
      * @return all info for a given hotel
      */
     @RequestMapping(path = "/hotels/{id}", method = RequestMethod.GET)
-    public Hotel get(@PathVariable int id) {
-        return hotelDao.get(id);
+    public Hotel get(@PathVariable int id) throws HotelNotFoundException {
+        Hotel hotelToReturn =  hotelDao.get(id);
+        if (hotelToReturn == null) {
+            throw new HotelNotFoundException();
+        }
+        return hotelToReturn;
     }
 
     /**
@@ -62,7 +70,11 @@ public class HotelController {
      */
     @RequestMapping(path = "reservations/{id}", method = RequestMethod.GET)
     public Reservation getReservation(@PathVariable int id) throws ReservationNotFoundException {
-        return reservationDao.get(id);
+        Reservation reservationToReturn = reservationDao.get(id);
+        if (reservationToReturn == null) {
+            throw new ReservationNotFoundException();
+        }
+        return reservationToReturn;
     }
 
     /**
@@ -84,8 +96,11 @@ public class HotelController {
      */
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/hotels/{id}/reservations", method = RequestMethod.POST)
-    public Reservation addReservation(@RequestBody Reservation reservation, @PathVariable("id") int hotelID)
+    public Reservation addReservation(@Valid @RequestBody Reservation reservation, @PathVariable("id") int hotelID)
             throws HotelNotFoundException {
+        if (hotelDao.get(hotelID) == null) {
+            throw new HotelNotFoundException();
+        }
         return reservationDao.create(reservation, hotelID);
     }
 
@@ -121,4 +136,21 @@ public class HotelController {
         return filteredHotels;
     }
 
+    /*
+        PUT Request
+     */
+    @RequestMapping(path="/reservations/{id}", method=RequestMethod.PUT)
+    public Reservation update(@PathVariable int id,
+                              @Valid @RequestBody Reservation reservation) throws ReservationNotFoundException {
+        return reservationDao.update(reservation, id);
+    }
+
+    /*
+        DELETE Request
+     */
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path="/reservations/{id}", method=RequestMethod.DELETE)
+    public void delete(@PathVariable int id) throws ReservationNotFoundException {
+        reservationDao.delete(id);
+    }
 }
