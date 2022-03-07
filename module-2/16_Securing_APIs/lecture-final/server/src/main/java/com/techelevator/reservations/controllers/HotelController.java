@@ -9,12 +9,19 @@ import com.techelevator.reservations.exception.ReservationNotFoundException;
 import com.techelevator.reservations.model.Hotel;
 import com.techelevator.reservations.model.Reservation;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    PreAuthorize(isAuthenticated()) can be applied to a method or the entire class.
+        - requires the user be logged into use that endpoint(s)
+ */
+@PreAuthorize("isAuthenticated()")
 @RestController
 public class HotelController {
 
@@ -31,6 +38,12 @@ public class HotelController {
      *
      * @return a list of all hotels in the system
      */
+    /*
+        PreAuthorize(permitAll) makes the endpoint accessible to everyone (public/guest)
+        The most specific application of PreAuthorize is used, so the method level PreAuthorize
+        overrides the class level
+     */
+    @PreAuthorize("permitAll")
     @RequestMapping(path = "/hotels", method = RequestMethod.GET)
     public List<Hotel> list() {
         return hotelDao.list();
@@ -42,6 +55,7 @@ public class HotelController {
      * @param id the id of the hotel
      * @return all info for a given hotel
      */
+
     @RequestMapping(path = "/hotels/{id}", method = RequestMethod.GET)
     public Hotel get(@PathVariable int id) {
         return hotelDao.get(id);
@@ -110,10 +124,20 @@ public class HotelController {
      * @param id
      * @throws ReservationNotFoundException
      */
+    /*
+        PreAuthoize can be used for Role based Authorization using
+            hasRole('ADMIN')
+            or hasAnyRole('ADMIN','USER')
+
+        The Principal object can be added to the method signature of any controller method,
+        and when String calls the controller method that object will be injected and will contain
+        the username of the current user.
+     */
+    @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/reservations/{id}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable int id) throws ReservationNotFoundException {
-        auditLog("delete", id, "username");
+    public void delete(@PathVariable int id, Principal principal) throws ReservationNotFoundException {
+        auditLog("delete", id, principal.getName());
         reservationDao.delete(id);
     }
 
@@ -158,7 +182,7 @@ public class HotelController {
      */
     private void auditLog(String operation, int reservation, String username) {
         System.out.println(
-                "User: " + username + "performed the operation: " + operation + "on reservation: " + reservation);
+                "User: " + username + " performed the operation: " + operation + " on reservation: " + reservation);
     }
 
 }

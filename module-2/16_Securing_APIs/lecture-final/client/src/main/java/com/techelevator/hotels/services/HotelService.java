@@ -25,8 +25,22 @@ public class HotelService {
     public Reservation addReservation(Reservation newReservation) {
         Reservation returnedReservation = null;
 
-        //TODO: Add implementation
-        BasicLogger.log("HotelService.addReservation() has not been implemented");
+        // 1. Create an HttpHeader Authorization Bearer with the token
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setBearerAuth(this.authToken);
+        HttpEntity<Reservation> entity = new HttpEntity<Reservation>(newReservation, headers);
+
+        //2. Build the URL
+        String url = API_BASE_URL + "/hotels/" + newReservation.getHotelId() + "/reservations";
+
+        //3. Make the POST Request
+        try {
+            returnedReservation = restTemplate.exchange(url, HttpMethod.POST, entity, Reservation.class).getBody();
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log(ex.getRawStatusCode() + " : " + ex.getStatusText());
+        }
+
 
         return returnedReservation;
     }
