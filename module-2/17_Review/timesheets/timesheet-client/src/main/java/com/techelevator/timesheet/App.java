@@ -108,11 +108,10 @@ public class App {
     }
 
 	private void viewDepartmentEmployees() {
-		List<EmployeeDetail> employeeDetails = timesheetService.departmentEmployeeView();
+		List<Employee> employeeDetails = timesheetService.departmentEmployeeView();
         if (employeeDetails != null) {
-            for (EmployeeDetail e : employeeDetails) {
-                consoleService.printEmployeeDetails(e);
-            }
+                consoleService.printEmployees(employeeDetails);
+
         } else {
             consoleService.printErrorMessage();
         }

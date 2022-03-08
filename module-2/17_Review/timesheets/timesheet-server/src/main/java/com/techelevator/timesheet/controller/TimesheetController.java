@@ -4,6 +4,7 @@ import com.techelevator.timesheet.dao.DepartmentDao;
 import com.techelevator.timesheet.dao.EmployeeDao;
 import com.techelevator.timesheet.dao.JdbcEmployeeDao;
 import com.techelevator.timesheet.model.Department;
+import com.techelevator.timesheet.model.Employee;
 import com.techelevator.timesheet.model.EmployeeDetail;
 import com.techelevator.timesheet.model.TimesheetRecord;
 import org.springframework.http.HttpStatus;
@@ -48,7 +49,7 @@ public class TimesheetController {
 
 
     @RequestMapping(path="/departments/{id}/employees", method=RequestMethod.GET)
-    public List<EmployeeDetail> getEmployeeDetailList(@PathVariable long id, Principal principal) {
+    public List<Employee> getEmployeeDetailList(@PathVariable long id, Principal principal) {
         return employeeDao.listOfEmployeeDetail(principal.getName());
     }
 

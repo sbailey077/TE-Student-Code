@@ -1,9 +1,6 @@
 package com.techelevator.timesheet.services;
 
-import com.techelevator.timesheet.model.AuthenticatedUser;
-import com.techelevator.timesheet.model.Department;
-import com.techelevator.timesheet.model.EmployeeDetail;
-import com.techelevator.timesheet.model.Timesheet;
+import com.techelevator.timesheet.model.*;
 import com.techelevator.util.BasicLogger;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -57,15 +54,15 @@ public class TimesheetService {
         return response;
     }
 
-    public List<EmployeeDetail> departmentEmployeeView() {
-        EmployeeDetail[] employeeDetail = null;
+    public List<Employee> departmentEmployeeView() {
+        Employee[] employeeDetail = null;
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.setBearerAuth((user.getToken()));
             HttpEntity<Void> entity = new HttpEntity<>(headers);
 
-            employeeDetail = restTemplate.exchange(baseUrl + "/departments/" + user.getUser() +
-                    "/employees", HttpMethod.GET, entity, EmployeeDetail[].class).getBody();
+            employeeDetail = restTemplate.exchange(baseUrl + "/departments/" + user.getUser().getId() +
+                    "/employees", HttpMethod.GET, entity, Employee[].class).getBody();
             if (employeeDetail != null) {
                 return Arrays.asList(employeeDetail);
             }
