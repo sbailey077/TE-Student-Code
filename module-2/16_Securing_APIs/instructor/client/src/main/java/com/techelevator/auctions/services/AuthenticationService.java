@@ -22,6 +22,10 @@ public class AuthenticationService {
         String token = null;
         try {
             // Add code here to send the request to the API and get the token from the response.
+            ResponseEntity<TokenDto> response = restTemplate.exchange(API_BASE_URL + "login", HttpMethod.POST, entity, TokenDto.class);
+            // Extract Body into TokenDto
+            TokenDto tokenDto = response.getBody();
+            token = tokenDto.getToken();
         } catch (RestClientResponseException | ResourceAccessException e) {
             BasicLogger.log(e.getMessage());
         }
