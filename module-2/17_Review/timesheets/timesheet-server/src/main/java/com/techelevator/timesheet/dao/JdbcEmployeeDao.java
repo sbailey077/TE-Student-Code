@@ -6,6 +6,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class JdbcEmployeeDao implements EmployeeDao {
 
@@ -62,5 +65,27 @@ public class JdbcEmployeeDao implements EmployeeDao {
                 "WHERE users.username = ?";
         Long employeeId = jdbcTemplate.queryForObject(sql, Long.class, username);
         return employeeId;
+    }
+
+    @Override
+    public List<EmployeeDetail> listOfEmployeeDetail(String userName) {
+        List<EmployeeDetail> employeeDetailList = new ArrayList<>();
+
+        String sql = "SELECT employee.first_name, employee.last_name, employee.rate_per_hour " +
+                "FROM department " +
+                "JOIN employee ON employee.department_id = department.department_id " +
+                "WHERE department.manager_id = (SELECT user_id FROM users WHERE username = ?) " +
+                "ORDER BY employee.last_name;";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, userName);
+
+        while (rowSet.next()) {
+            EmployeeDetail detail = new EmployeeDetail();
+                detail.setDepartmentName( rowSet.getString("department_name") );
+                detail.setManagerFirstName( rowSet.getString( "manager_first_name") );
+                detail.setManagerLastName( rowSet.getString( "manager_last_name" ) );
+                detail.setPayRate( rowSet.getDouble( "rate_per_hour"));
+                employeeDetailList.add(detail);
+        }
+        return employeeDetailList;
     }
 }
