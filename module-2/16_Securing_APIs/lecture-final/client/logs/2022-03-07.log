@@ -1,0 +1,2 @@
+2022-03-07T11:37:29.8331998 401 : [{"timestamp":"2022-03-07T16:37:29.799+00:00","status":401,"error":"Unauthorized","message":"Full authentication is required to access this resource","path":"/hotels/1/reservations"}]
+2022-03-07T11:58:46.5033434 HotelService.addReservation() has not been implemented

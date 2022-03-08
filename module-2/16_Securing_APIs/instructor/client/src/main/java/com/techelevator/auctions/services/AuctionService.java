@@ -34,6 +34,8 @@ public class AuctionService {
         Auction auction = null;
         try {
             // Add code here to send the request to the API and get the auction from the response.
+            String url = API_BASE_URL  + id;
+            auction = restTemplate.exchange(url,HttpMethod.GET,makeAuthEntity(),Auction.class).getBody();
         } catch (RestClientResponseException | ResourceAccessException e) {
             BasicLogger.log(e.getMessage());
         }
