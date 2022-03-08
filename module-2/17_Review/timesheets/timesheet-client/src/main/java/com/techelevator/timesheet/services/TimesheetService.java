@@ -3,9 +3,11 @@ package com.techelevator.timesheet.services;
 import com.techelevator.timesheet.model.AuthenticatedUser;
 import com.techelevator.timesheet.model.Department;
 import com.techelevator.timesheet.model.EmployeeDetail;
+import com.techelevator.timesheet.model.Timesheet;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -39,6 +41,16 @@ public class TimesheetService {
         HttpEntity<Void> entity = new HttpEntity<>(headers);
 
         return restTemplate.exchange(baseUrl + "employees", HttpMethod.GET, entity, EmployeeDetail.class).getBody();
+    }
+
+    public Timesheet addTimesheetRecord(Timesheet record) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBearerAuth(user.getToken());
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Timesheet> entity = new HttpEntity<Timesheet>(record, headers);
+
+        Timesheet response = restTemplate.exchange(baseUrl + "timesheets", HttpMethod.POST, entity, Timesheet.class).getBody();
+        return response;
     }
 
 

@@ -1,6 +1,7 @@
 package com.techelevator.timesheet.dao;
 
 import com.techelevator.timesheet.model.EmployeeDetail;
+import com.techelevator.timesheet.model.TimesheetRecord;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -36,5 +37,30 @@ public class JdbcEmployeeDao implements EmployeeDao {
             detail.setPayRate( rows.getDouble( "rate_per_hour"));
         }
         return detail;
+    }
+
+    @Override
+    public TimesheetRecord addTimesheetRecord(TimesheetRecord timesheet, String username) {
+
+        long employeeId = getEmployeeIdFromUserName(username);
+
+        String sql = "INSERT INTO timesheet(" +
+                "employee_id, date_worked, hours_worked, billable, description) " +
+                " VALUES (?, ?, ?, ?, ?) RETURNING timesheet_id;";
+
+        Long id = jdbcTemplate.queryForObject(sql, Long.class, employeeId, timesheet.getDateWorked(), timesheet.getHoursWorked(),
+                timesheet.isBillable(), timesheet.getDescription());
+
+        timesheet.setTimesheetId(id);
+
+        return timesheet;
+    }
+
+    private Long getEmployeeIdFromUserName(String username) {
+        String sql = "SELECT employee_id FROM employee " +
+                "JOIN users ON employee.user_id = users.user_id " +
+                "WHERE users.username = ?";
+        Long employeeId = jdbcTemplate.queryForObject(sql, Long.class, username);
+        return employeeId;
     }
 }

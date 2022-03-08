@@ -1,9 +1,6 @@
 package com.techelevator.timesheet;
 
-import com.techelevator.timesheet.model.AuthenticatedUser;
-import com.techelevator.timesheet.model.Department;
-import com.techelevator.timesheet.model.EmployeeDetail;
-import com.techelevator.timesheet.model.UserCredentials;
+import com.techelevator.timesheet.model.*;
 import com.techelevator.timesheet.services.AuthenticationService;
 import com.techelevator.timesheet.services.ConsoleService;
 import com.techelevator.timesheet.services.TimesheetService;
@@ -81,8 +78,10 @@ public class App {
             } else if (menuSelection == 2) {
                 viewDetailsForEmployee();
             } else if (menuSelection == 3) {
-                viewDepartmentEmployees();
+                addRecordToTimesheet();
             } else if (menuSelection == 4) {
+                viewDepartmentEmployees();
+            } else if (menuSelection == 5) {
                 viewEmployeeBillableHours();
             } else if (menuSelection == 0) {
                 continue;
@@ -102,6 +101,11 @@ public class App {
         EmployeeDetail details = timesheetService.getEmployeeDetailsForCurrentUser();
         consoleService.printEmployeeDetails(details);
 	}
+
+    private void addRecordToTimesheet() {
+        Timesheet timesheet = consoleService.getNewTimeSheetRecordFromUser();
+        timesheetService.addTimesheetRecord(timesheet);
+    }
 
 	private void viewDepartmentEmployees() {
 		// TODO Auto-generated method stub

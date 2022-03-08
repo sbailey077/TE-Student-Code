@@ -3,6 +3,7 @@ package com.techelevator.timesheet.services;
 
 import com.techelevator.timesheet.model.Department;
 import com.techelevator.timesheet.model.EmployeeDetail;
+import com.techelevator.timesheet.model.Timesheet;
 import com.techelevator.timesheet.model.UserCredentials;
 
 import java.math.BigDecimal;
@@ -42,8 +43,9 @@ public class ConsoleService {
         System.out.println();
         System.out.println("1: View Departments");
         System.out.println("2: View your employee details");
-        System.out.println("3: View your departments employees");
-        System.out.println("4: View your billable hours");
+        System.out.println("3: Add record to your timesheet");
+        System.out.println("4: View your departments employees");
+        System.out.println("5: View your billable hours");
         System.out.println("0: Exit");
         System.out.println();
     }
@@ -109,5 +111,22 @@ public class ConsoleService {
         System.out.println("Department: " + employeeDetail.getDepartmentName());
         System.out.println("Manager: " + employeeDetail.getManagerFirstName() + " " + employeeDetail.getManagerLastName());
         System.out.printf("Pay Rate: $%6.2f %n", employeeDetail.getPayRate());
+    }
+
+    public Timesheet getNewTimeSheetRecordFromUser() {
+
+        Timesheet timesheet = new Timesheet();
+
+        System.out.println("Record timesheet item");
+        System.out.print("Date (yyyy-mm-dd) >>> ");
+        timesheet.setDateWorked(scanner.nextLine());
+        System.out.print("Hours >>> ");
+        timesheet.setHoursWorked( Double.parseDouble( scanner.nextLine() ));
+        System.out.print("Task >>> ");
+        timesheet.setDescription( scanner.nextLine() );
+        System.out.print("Is Billable (Y/N) >>>");
+        timesheet.setBillable( scanner.nextLine().equalsIgnoreCase("Y") );
+
+        return timesheet;
     }
 }

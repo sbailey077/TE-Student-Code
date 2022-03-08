@@ -22,6 +22,7 @@ username [full name].  (MANAGER) indicates the user is a manager
 ## departments view 
 
 - Endpoint: `/departments`
+- Method: GET
 - Access: Anyone
 - Display Data: `department name,  manager name,  manager username`
 - Sort Order: Department Name
@@ -61,6 +62,7 @@ ORDER BY department_name;
 ## employee details view 
 
 - Endpoint: `/employees`
+- Method: GET
 - Access: Should only return data for the logged in user
 - Display Data: `department, manager name, pay_rate`
 - JSON
@@ -84,6 +86,36 @@ JOIN employee manager_emp ON manager_user.user_id = manager_emp.user_id
 JOIN users emp_user ON employee.user_id = emp_user.user_id
 WHERE emp_user.username = ?;
 ```
+
+## add timesheet record
+
+
+- Endpoint: `/timesheets`
+- Method: POST
+- Access: Add a new timesheet record for the logged in user
+- JSON
+
+```
+{
+    "timesheetId": 26,
+    "dateWorked": "2022-03-07",
+    "hoursWorked": 5.0,
+    "billable": true,
+    "description": "description"
+}
+```
+- SQL Query
+```
+SELECT employee_id FROM employee
+JOIN users ON employee.user_id = users.user_id
+WHERE users.username = ?;
+
+INSERT INTO public.timesheet(
+	employee_id, date_worked, hours_worked, billable, description)
+	VALUES (?, ?, ?, ?, ?);
+
+```
+
 
 ## department employee view 
 
@@ -122,9 +154,10 @@ ORDER BY employee.last_name;
 ```
 
 
-## department employee view 
+## get employee billable hours
 
-- Endpoint: `/employees/hours`
+- Endpoint: `/timesheets`
+- Method: GET
 - Access: Should only return data for the currently logged in employee
 - Display Data: `Date  task hours_billed  rate  total_billed`
 - Sort Order: Date
