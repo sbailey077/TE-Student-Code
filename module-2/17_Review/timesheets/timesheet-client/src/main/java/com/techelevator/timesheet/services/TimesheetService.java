@@ -4,12 +4,16 @@ import com.techelevator.timesheet.model.AuthenticatedUser;
 import com.techelevator.timesheet.model.Department;
 import com.techelevator.timesheet.model.EmployeeDetail;
 import com.techelevator.timesheet.model.Timesheet;
+import com.techelevator.util.BasicLogger;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -53,6 +57,22 @@ public class TimesheetService {
         return response;
     }
 
+    public List<EmployeeDetail> departmentEmployeeView() {
+        EmployeeDetail[] employeeDetail = null;
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setBearerAuth((user.getToken()));
+            HttpEntity<Void> entity = new HttpEntity<>(headers);
 
+            employeeDetail = restTemplate.exchange(baseUrl + "/departments/" + user.getUser() +
+                    "/employees", HttpMethod.GET, entity, EmployeeDetail[].class).getBody();
+            if (employeeDetail != null) {
+                return Arrays.asList(employeeDetail);
+            }
+        } catch (RestClientResponseException | ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return null;
+    }
 
 }

@@ -108,8 +108,14 @@ public class App {
     }
 
 	private void viewDepartmentEmployees() {
-		// TODO Auto-generated method stub
-		
+		List<EmployeeDetail> employeeDetails = timesheetService.departmentEmployeeView();
+        if (employeeDetails != null) {
+            for (EmployeeDetail e : employeeDetails) {
+                consoleService.printEmployeeDetails(e);
+            }
+        } else {
+            consoleService.printErrorMessage();
+        }
 	}
 
 	private void viewEmployeeBillableHours() {
