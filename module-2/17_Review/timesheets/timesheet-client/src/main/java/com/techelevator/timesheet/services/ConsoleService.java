@@ -1,10 +1,7 @@
 package com.techelevator.timesheet.services;
 
 
-import com.techelevator.timesheet.model.Department;
-import com.techelevator.timesheet.model.EmployeeDetail;
-import com.techelevator.timesheet.model.Timesheet;
-import com.techelevator.timesheet.model.UserCredentials;
+import com.techelevator.timesheet.model.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -111,6 +108,15 @@ public class ConsoleService {
         System.out.println("Department: " + employeeDetail.getDepartmentName());
         System.out.println("Manager: " + employeeDetail.getManagerFirstName() + " " + employeeDetail.getManagerLastName());
         System.out.printf("Pay Rate: $%6.2f %n", employeeDetail.getPayRate());
+    }
+
+    public void printEmployees(List<Employee> employees) {
+        System.out.println("Employees in your Department");
+        System.out.println("---------------------------------");
+        for (Employee employee: employees) {
+            System.out.printf("%-32s $%8.2f %n", employee.getFullName(), employee.getPayRate());
+        }
+
     }
 
     public Timesheet getNewTimeSheetRecordFromUser() {

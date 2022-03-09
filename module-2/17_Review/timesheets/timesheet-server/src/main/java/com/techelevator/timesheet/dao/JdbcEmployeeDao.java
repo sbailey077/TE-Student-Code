@@ -1,10 +1,14 @@
 package com.techelevator.timesheet.dao;
 
+import com.techelevator.timesheet.model.Employee;
 import com.techelevator.timesheet.model.EmployeeDetail;
 import com.techelevator.timesheet.model.TimesheetRecord;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class JdbcEmployeeDao implements EmployeeDao {
@@ -62,5 +66,26 @@ public class JdbcEmployeeDao implements EmployeeDao {
                 "WHERE users.username = ?";
         Long employeeId = jdbcTemplate.queryForObject(sql, Long.class, username);
         return employeeId;
+    }
+
+    @Override
+    public List<Employee> listOfEmployeeDetail(String userName) {
+        List<Employee> employeeList = new ArrayList<>();
+
+        String sql = "SELECT employee.first_name, employee.last_name, employee.rate_per_hour " +
+                "FROM department " +
+                "JOIN employee ON employee.department_id = department.department_id " +
+                "WHERE department.manager_id = (SELECT user_id FROM users WHERE username = ?) " +
+                "ORDER BY employee.last_name;";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, userName);
+
+        while (rowSet.next()) {
+            Employee employee = new Employee();
+             employee.setFirstName( rowSet.getString("first_name"));
+             employee.setLastName( rowSet.getString("last_name") );
+             employee.setPayRate( rowSet.getDouble("rate_per_hour"));
+            employeeList.add(employee);
+        }
+        return employeeList;
     }
 }
