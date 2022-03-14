@@ -14,7 +14,7 @@ import com.techelevator.reservations.model.Hotel;
 import com.techelevator.reservations.model.Reservation;
 
 @Component
-public class MemoryReservationDao implements ReservationDao {
+public class updMemoryReservationDao implements ReservationDao {
 
     private List<Reservation> reservations = new ArrayList<>();
     private HotelDao hotelDao;
