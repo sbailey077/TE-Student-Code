@@ -11,7 +11,87 @@ body {
   background-color: rgba(192, 192, 192, 0.1);
 }
 
+aside {
+  position: fixed;
+  width: 200px;
+  border-right: solid rgba(0, 173, 238, 0.4); 
+  border-width: 1px;
+  height: 100%;
+}
+
+aside img {
+  display: block;
+  width: 120px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+main {
+  display: block;
+  margin-left: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+nav li {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: solid rgba(0, 173, 238, 0.4);
+  
+  border-width: 1px;
+  list-style: none;
+  padding: 10px;
+}
+
+nav li:first-child {
+  font-weight: bold;
+  color: #00adee;
+  text-decoration: underline;
+}
+
+nav li a {
+  font-weight: bold;
+  color: #00adee;
+  text-decoration: none;
+}
+
 ul {
   margin: 0;
   padding: 0;
+}
+
+main header img {
+  height: 100px;
+  padding: 10px;
+}
+
+main img.banner {
+  width: 100%;
+}
+
+section > div {
+  display: inline-block;
+  width: 33%;
+  padding: 10px;
+}
+
+section div h2 {
+  color: #8CC36F;
+}
+
+section div h2 i {
+  display: block;
+  padding: 10px;
+}
+
+section div#what-we-do {
+  border-right: solid rgba(170, 239, 135, 0.8);
+  border-width: 1px;
+}
+
+section div#our-work {
+  border-right: solid rgba(170, 239, 135, 0.8);
+  border-width: 1px;
 }
