@@ -2,21 +2,23 @@
     background-color: lightblue;
 }
 
-/* div {
+div {
     background-color: red;
-} */
+}
 
-/* .descendentOne {
-    background-color: yellow;
-} */
+
 
 /* #idExample {
     background-color: gray;
 } */
 
-/* .descendentOne {
+.descendentOne {
     background-color: orange;
-} */
+}
+
+.descendentOne {
+    background-color: yellow;
+}
 
 
 
