@@ -39,7 +39,6 @@ nav li {
   text-align: center;
   text-transform: uppercase;
   border-bottom: solid rgba(0, 173, 238, 0.4);
-  
   border-width: 1px;
   list-style: none;
   padding: 10px;
@@ -60,6 +59,8 @@ nav li a {
 ul {
   margin: 0;
   padding: 0;
+  padding-right: 10px;
+  align-content: center;
 }
 
 main header img {
