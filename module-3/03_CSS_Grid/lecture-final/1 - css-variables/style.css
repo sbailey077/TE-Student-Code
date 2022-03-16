@@ -1,3 +1,7 @@
+:root {
+    --page-text-color: rgb(126, 2, 120);
+    --default-element-width: 50vw;
+}
 
 h1 {
     color: blue;
@@ -5,22 +9,22 @@ h1 {
 
 section h2 {
     background-color: yellow;
-    color: green;
-    width: 50vw;
+    color: var(--page-text-color);
+    width: var(--default-element-width);
 }
 
 section > p {
-    color: green;
+    color: var(--page-text-color);
     font-size: 1.5rem;
-    width: 50vw;
+    width: var(--default-element-width);
 }
 
 section > div {
-    color: green;
+    color: var(--page-text-color);
     font-size: 1.75rem;
     border: 1px solid black;
     padding: 10px;
-    width: 50vw;
+    width: var(--default-element-width);
 }
 
 section > div > p {
@@ -29,6 +33,9 @@ section > div > p {
     padding: 5px;
     width: 50vw;
 }
+
+
+
 
 
 
