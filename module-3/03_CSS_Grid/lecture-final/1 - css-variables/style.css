@@ -1,0 +1,41 @@
+:root {
+    --page-text-color: rgb(126, 2, 120);
+    --default-element-width: 50vw;
+}
+
+h1 {
+    color: blue;
+}
+
+section h2 {
+    background-color: yellow;
+    color: var(--page-text-color);
+    width: var(--default-element-width);
+}
+
+section > p {
+    color: var(--page-text-color);
+    font-size: 1.5rem;
+    width: var(--default-element-width);
+}
+
+section > div {
+    color: var(--page-text-color);
+    font-size: 1.75rem;
+    border: 1px solid black;
+    padding: 10px;
+    width: var(--default-element-width);
+}
+
+section > div > p {
+    color: teal;
+    background-image: linear-gradient(lightblue, pink);
+    padding: 5px;
+    width: 50vw;
+}
+
+
+
+
+
+
