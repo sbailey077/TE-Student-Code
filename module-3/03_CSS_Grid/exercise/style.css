@@ -39,6 +39,51 @@ div#experience-grid {
     column-gap: 50px;
 }
 
+@media (max-width: 1024px) {
+    main#main-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "headline headline"
+        "student-quote student-picture"
+        "student-quote student-contact"
+        "student-profile student-profile"
+        "experience experience";
+        row-gap: 20px;
+        column-gap: 35px;
+    }
+
+    div#experience-grid {
+        grid-area: experience;
+        grid-template-areas: 
+        "code web"
+        "database design";
+        row-gap: 20px;
+        column-gap: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    main#main-grid {
+        grid-template-columns: 1 fr;
+        grid-template-areas: 
+        "headline"
+        "student-picture"
+        "student-contact"
+        "student-quote"
+        "student-profile"
+        "experience";
+    }
+
+    div#experience-grid {
+        grid-template-columns: 1 fr;
+        grid-template-areas: 
+        "code"
+        "web"
+        "database"
+        "design";
+    }
+}
+
 h1 {
     font-size: 2em;
 }
