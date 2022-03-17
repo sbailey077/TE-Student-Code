@@ -5,6 +5,7 @@ body {
 }
 
 .bio {
+  display: flex;
   background-color: #F0F0F0;
   padding: 20px;
   margin-bottom: 20px;
@@ -15,4 +16,9 @@ body {
   width: 150px;
   border-radius: 999px;
   margin: 0 10px;
+}
+
+body :nth-child(even) img {
+  display: flex;
+  order: 2;
 }
