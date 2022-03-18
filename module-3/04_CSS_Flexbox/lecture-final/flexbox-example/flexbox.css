@@ -12,8 +12,8 @@ div#one {
     /* height: 75px;
     line-height: 50px; */
 
-     /* flex-basis: 25%; */
-
+     flex-basis: 25%;
+  
 
     /* flex-basis: 33%;
     flex-shrink: 1; */
@@ -27,8 +27,8 @@ div#two {
     line-height: 150px; */
 
 
-    /* flex-basis: 25%;
-    flex-grow: 2;  */
+    flex-basis: 25%;
+    flex-grow: 2; 
 
     /* flex-basis: 33%;
     flex-shrink: 6; */
@@ -39,7 +39,7 @@ div#two {
 div#three {
 
  
-    /* flex-basis: 25%;  */
+    flex-basis: 25%; 
 
 
     /* flex-basis: 33%;
