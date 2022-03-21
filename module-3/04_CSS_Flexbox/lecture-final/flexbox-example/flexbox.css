@@ -3,8 +3,8 @@
 section#flex-example {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -12,11 +12,14 @@ div#one {
     /* height: 75px;
     line-height: 50px; */
 
-    /* flex-basis: 25%; */
-
+     flex-basis: 25%;
+  
 
     /* flex-basis: 33%;
     flex-shrink: 1; */
+
+    align-self: flex-start;
+  
 }
 
 div#two {
@@ -24,22 +27,25 @@ div#two {
     line-height: 150px; */
 
 
-    /* flex-basis: 25%;
-    flex-grow: 2; */
+    flex-basis: 25%;
+    flex-grow: 2; 
 
     /* flex-basis: 33%;
     flex-shrink: 6; */
+
+    align-self: center;
 }
 
 div#three {
 
-    
-    /* flex-basis: 25%; */
+ 
+    flex-basis: 25%; 
 
 
     /* flex-basis: 33%;
     flex-shrink: 1; */
 
+    align-self: flex-end;
 
 }
 
