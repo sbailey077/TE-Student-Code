@@ -12,7 +12,15 @@
 			return x + y;
         }
 */
-
+function sumDouble(x, y) {
+	const sum = x + y;
+	// if (x === y) {
+	// 	return sum * 2;
+	// } else {
+	// 	return sum;
+	// }
+	return x === y ? sum * 2 : sum;
+}
 /*
 2. **hasTeen** We'll say that a number is "teen" if it is in the range 13..19 inclusive. 
     Given 3 int values, return true if 1 or more of them are teen.
@@ -21,6 +29,9 @@
 		hasTeen(20, 19, 10) → true
 		hasTeen(20, 10, 13) → true
 */
+function hasTeen(a, b, c) {
+	
+}
 
 /* 
 3. **lastDigit** Given two non-negative int values, return true if they have the same 
