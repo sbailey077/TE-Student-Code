@@ -66,15 +66,35 @@ function makeNumber(first, second='') {
  * @returns {number} the sum of all the parameters (or arguments)
  */
 
-function addAll(...number) {
-
+function addAll(...num) {
+    let sum = 0;
+   for (let i = 0; i < num.length; i++) {
+        sum += num[i];
+   }
+   return sum;
 }
+
+
 
 /*
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
  */
+
+/**
+ * Takes an array of strings and prepends 'Happy ' onto the beginning of each word in the array
+ * 
+ * @param {string[]} [sentence] array of strings to be prepended on
+ * @returns {string[]} new array with 'Happy ' prepended  to the beginning
+ */
+
+function makeHappy(sentence) {
+    const newArray = sentence.map( (currentValue) => {
+        return "Happy " + currentValue;
+    });
+    return newArray;
+}
 
 /*
  * Write and document a function called getFullAddressesOfProperties
@@ -94,12 +114,54 @@ function addAll(...number) {
  * Use `map` and an anonymous function.
  */
 
+/**
+ * 
+ * @param {object[]} [addressProperties] a list of objects with the following information about an address:
+ *                                          * streetNumber
+ *                                          * streetName
+ *                                          * streetType
+ *                                          * city
+ *                                          * state
+ *                                          * zip
+ * @returns {string[]} mailing address in the form of: streetNumber, streetName, streetType, city, state, zip 
+ */
+
+function getFullAddressesOfProperties(addressProperties) {
+    const fullAddress = addressProperties.map( (currentValue) => {
+        return [currentValue.streetNumber, currentValue.streetName, currentValue.streetType, currentValue.city, currentValue.state, currentValue.zip].join(" ");
+    });
+    return fullAddress;
+}
+
+
 /*
  * Write and document a function called findLargest.
  *
  * Using `forEach`, find the largest element in an array.
  * It must work for strings and numbers.
  */
+
+/**
+ * 
+ * 
+ * @param {number[]} [elements] elements in the array
+ * @returns {object} largest element in the array
+ */
+
+function findLargest(elements) {
+    let largestNum = 0;
+    if (typeof elements[0] == "string") {
+        let array = elements.sort();
+        return array[array.length - 1];
+    } else if(typeof elements [0] == "number") {
+        elements.forEach((currentValue) => {
+            if (largestNum < currentValue) {
+                    largestNum = currentValue;
+            }
+        });
+        return largestNum;
+    } 
+}
 
 /*
  * CHALLENGE
