@@ -7,19 +7,32 @@ const groceries = ['eggs', 'milk', 'cheese', 'bagels', 'coffee', 'butter', 'avoc
  * of the pageTitle variable that was set above.
  */
 function setPageTitle() {
- 
+  document.querySelector('#title').innerText = pageTitle;
 }
 
 /**
  * This function will loop over the array of groceries that was set above and add them to the DOM.
  */
-function displayGroceries() {}
+function displayGroceries() {
+  const groceryList = document.getElementById('groceries');
+  
+  groceries.forEach( item => {
+    const groceryItem = document.createElement('li');
+    groceryItem.innerText = item;
+    groceryList.insertAdjacentElement('beforeend', groceryItem);
+  }, 0);
+}
 
 /**
  * This function will be called when the button is clicked. You will need to get a reference
  * to every list item and add the class completed to each one
  */
-function markCompleted() {}
+function markCompleted() {
+  const groceryList = document.querySelectorAll('li');
+  groceryList.forEach( item => {
+    item.classList.add('completed');
+  });
+}
 
 setPageTitle();
 
