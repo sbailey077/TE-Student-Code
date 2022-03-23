@@ -31,24 +31,69 @@ const reviews = [
   }
 ];
 
+/*
+Build this div and children for each review in the array:
+
+<div class="review">
+  <h4>Reviewer's Name</h4>
+  <div class="rating">
+      <img src="img/star.png" class="ratingStar" />
+      <img src="img/star.png" class="ratingStar" />
+      <img src="img/star.png" class="ratingStar" />
+  </div>
+  <h3>Title</h3>
+  <p>Review itself</p>
+</div> 
+
+Attach the new review div to div#main
+*/
+
+
+
 /**
  * Add our product name to the page title
  * Get our page page title by the id and the query the .name selector
  * once you have the element you can add the product name to the span.
  */
-function setPageTitle() {}
+function setPageTitle() {
+    const pageTitle = document.getElementById('page-title');
+    pageTitle.querySelector('.name').innerText= name;
+}
 
 /**
  * Add our product description to the page.
  */
-function setPageDescription() {}
+function setPageDescription() {
+  document.querySelector('.description').innerText = description;
+}
 
 /**
  * I will display all of the reviews on the page.
  * I will loop over the array of reviews and use some helper functions
  * to create the elements needed for our markup and add them to the DOM
  */
-function displayReviews() {}
+function displayReviews() {
+  const main = document.getElementById('main');
+
+  reviews.forEach( review => {
+    // Create a new Div
+    const reviewDiv = document.createElement('div');
+    // Set its class to review
+    reviewDiv.classList.add('review');
+
+    // add reviewer
+    addReviewer(reviewDiv, review.reviewer);
+    // add rating
+    addRating(reviewDiv, review.rating);
+    // add review title
+    addTitle(reviewDiv, review.title);
+    // add review
+    addReview(reviewDiv, review.review);
+
+    // Attach the new div as a child of main
+    main.insertAdjacentElement('beforeend', reviewDiv);
+  });
+}
 
 /**
  * I will create a new h4 element with the name of the reviewer and append it to
@@ -57,28 +102,63 @@ function displayReviews() {}
  * @param {HTMLElement} parent: The element to append the reviewer to
  * @param {string} name The name of the reviewer
  */
-function addReviewer(parent, name) {}
+function addReviewer(parent, name) {
+    const reviewerH4 = document.createElement('h4');
+    reviewerH4.innerText = name;
+    parent.appendChild(reviewerH4);
+}
 
 /**
  * I will add the rating div along with a star image for the number of ratings 1-5
  * @param {HTMLElement} parent
  * @param {Number} numberOfStars
  */
-function addRating(parent, numberOfStars) {}
+function addRating(parent, numberOfStars) {
+  // Create a new Div
+  const ratingDiv = document.createElement('div');
+  // Give the div a class rating
+  ratingDiv.classList.add('rating');
+  // create 1 img for each numberOfStars
+  for (let n = 0; n < numberOfStars; n++) {
+    const starImg = document.createElement('img');
+    // set the img src to img/star.png
+    starImg.src = 'img/star.png';
+    // set the img class to ratingStar
+    starImg.classList.add('ratingStar');
+    // Attach the star img to the rating div
+    ratingDiv.appendChild(starImg);
+  }
+  // Attach the rating div to the parent
+  parent.appendChild(ratingDiv);
+}
 
 /**
  * I will add an h3 element along with the review title
  * @param {HTMLElement} parent
  * @param {string} title
  */
-function addTitle(parent, title) {}
+function addTitle(parent, title) {
+  // Create an h3
+  const titleH3 = document.createElement('div');
+  // Set the text of the new h3 to the title
+  titleH3.innerText = title;
+  // append the h3 to the parent div
+  parent.appendChild(titleH3);
+}
 
 /**
  * I will add the product review
  * @param {HTMLElement} parent
  * @param {string} review
  */
-function addReview(parent, review) {}
+function addReview(parent, review) {
+  // Create a p
+  const reviewParagraph = document.createElement('p');
+  // set the text of the new p to the review
+  reviewParagraph.innerText = review;
+  // append the new p to the parent div
+  parent.appendChild(reviewParagraph);
+}
 
 // set the product reviews page title
 setPageTitle();
