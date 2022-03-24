@@ -90,8 +90,8 @@ allNumbers.forEach(number => {
   // add a click event listener to call the function clickNumber
   // the decimal point is part of the number so append it
 const decimal = document.querySelector('.decimal');
-decimal.addEventListener('click', () => {
-  display.value += decimal.value;
+decimal.addEventListener('click', event => {
+  clickNumber(event);
 })
 
   // get a reference to the all clear button
