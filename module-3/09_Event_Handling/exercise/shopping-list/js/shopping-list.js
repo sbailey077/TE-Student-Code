@@ -36,3 +36,20 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  //Sets the page title.
+  setPageTitle();
+  //Displays the list of groceries.
+  displayGroceries();
+
+  const elements = document.querySelector('li');
+  elements.addEventListener('click', (event) => {
+    elements.classList.add('completed');
+  })
+  
+  
+  
+
+})
