@@ -44,12 +44,43 @@ document.addEventListener('DOMContentLoaded', () => {
   //Displays the list of groceries.
   displayGroceries();
 
-  const elements = document.querySelector('li');
+  const elements = document.querySelector('ul');
   elements.addEventListener('click', (event) => {
-    elements.classList.add('completed');
+    if (event.target.nodeName.toLowerCase() === 'li') {
+      event.target.classList.add('completed');
+    }
+  });
+
+  elements.addEventListener('dblclick', (event) => {
+    if (event.target.nodeName.toLowerCase() === 'li') {
+      event.target.classList.remove('completed');
+    }
+  });
+  
+  const toggleButton = document.querySelector('.btn'); 
+  toggleButton.addEventListener('click', (event) => {
+    if (toggleButton.innerText.toLowerCase() === 'mark all complete') {
+      markAllComplete()
+      toggleButton.innerText = 'Mark All Incomplete';
+    } else  {
+      markIncomplete()
+      toggleButton.innerText = 'Mark All Complete';
+    }
   })
   
-  
+  function markAllComplete() {
+    groceryList = Array.from(document.querySelectorAll('li'));
+    groceryList.forEach( (item)  => {
+      item.classList.add('completed');
+    }) 
+  }
+
+  function markIncomplete() {
+    groceryList = Array.from(document.querySelectorAll('li'));
+    groceryList.forEach( (item)  => {
+      item.classList.remove('completed');
+    }) 
+  }
   
 
 })
