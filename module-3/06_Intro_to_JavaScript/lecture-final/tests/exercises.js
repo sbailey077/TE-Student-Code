@@ -4,5 +4,8 @@
  *   nonStart("Hello", "There") -> "ellohere"
  */
 function nonStart(word1, word2) {
-  return word1.substring(1) + word2.substring(1);
+ const wordOne = word1.substring(1);
+ const wordTwo = word2.substring(1);
+ const newWord = wordOne + wordTwo;
+ return newWord;
 }
