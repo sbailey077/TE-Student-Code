@@ -64,9 +64,9 @@
       <button>Delete Users</button>
     </div>
 
-    <button>Add New User</button>
+    <button v-on:click="showForm = true">Add New User</button>
 
-    <form id="frmAddNewUser">
+    <form id="frmAddNewUser" v-show="showForm" v-on:submit.prevent="">
       <div class="field">
         <label for="firstName">First Name:</label>
         <input type="text" name="firstName" />
@@ -108,6 +108,7 @@ export default {
         emailAddress: "",
         status: "Active"
       },
+      showForm: false,
       users: [
         {
           id: 1,
@@ -198,7 +199,7 @@ export default {
         );
       }
       return filteredUsers;
-    }
+    },
   }
 };
 </script>
