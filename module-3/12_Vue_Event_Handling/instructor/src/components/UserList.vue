@@ -15,7 +15,7 @@
       <tbody>
         <tr>
           <td>
-            <input type="checkbox" id="selectAll" />
+            <input type="checkbox" id="selectAll" v-on:change="selectAll($event)" v-bind:checked="selectedUserIDs.length === users.length"/>
           </td>
           <td>
             <input type="text" id="firstNameFilter" v-model="filter.firstName" />
@@ -44,7 +44,7 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-bind:checked="selectedUserIDs.includes(user.id)" />
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -108,6 +108,7 @@ export default {
         emailAddress: "",
         status: "Active"
       },
+      selectedUserIDs: [],
       users: [
         {
           id: 1,
@@ -160,7 +161,18 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    selectAll(event){
+      if(event.target.checked){
+        this.selectedUserIDs = []; //clear array of all selected users first
+        this.users.forEach((user) => {
+          this.selectedUserIDs.push(user.id);
+        })
+      } else {
+        this.selectedUserIDs = [];
+      }
+    }
+  },
   computed: {
     filteredList() {
       let filteredUsers = this.users;

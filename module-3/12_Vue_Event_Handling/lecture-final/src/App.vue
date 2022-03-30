@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <img alt="Vue logo" src="./assets/SmokingSquirrel.png" />
     <product-review></product-review>
   </div>
 </template>
@@ -25,5 +25,9 @@ export default {
   color: #2c3e50;
   max-width: 800px;
   margin: 60px auto 0 auto;
+}
+
+img {
+  height: 200px;
 }
 </style>
