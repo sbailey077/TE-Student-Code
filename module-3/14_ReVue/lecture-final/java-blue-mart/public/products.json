@@ -1,0 +1,342 @@
+[
+ {
+   "id": 1,
+   "category": "Home",
+   "name": "Cream Sofa",
+   "image_name": "cream-sofa.jpg",
+   "rating": 2.7,
+   "is_top_seller": false,
+   "quantity": 3,
+   "price": 750
+ },
+ {
+   "id": 2,
+   "category": "Home",
+   "name": "Grey Sofa",
+   "image_name": "grey-sofa.jpg",
+   "rating": 4.7,
+   "is_top_seller": false,
+   "quantity": 0,
+   "price": 939
+ },
+ {
+   "id": 3,
+   "category": "Home",
+   "name": "Yellow Sofa",
+   "image_name": "yellow-sofa.jpg",
+   "rating": 0,
+   "is_top_seller": false,
+   "quantity": 0,
+   "price": 559
+ },
+ {
+   "id": 4,
+   "category": "Home",
+   "name": "Black Bean Bag Chair",
+   "image_name": "black-bean-bag-chair.jpg",
+   "rating": 4.2,
+   "is_top_seller": true,
+   "quantity": 20,
+   "price": 39.95
+ },
+ {
+   "id": 5,
+   "category": "Home",
+   "name": "Copper Light",
+   "image_name": "copper-light.jpg",
+   "rating": 3.6,
+   "is_top_seller": false,
+   "quantity": 200,
+   "price": 59.99
+ },
+ {
+   "id": 6,
+   "category": "Home",
+   "name": "Vanilla candle",
+   "image_name": "vanilla-candle.jpg",
+   "rating": 1.9,
+   "is_top_seller": true,
+   "quantity": 12,
+   "price": 589.99
+ },
+ {
+   "id": 7,
+   "category": "Home",
+   "name": "Pink Armchair",
+   "image_name": "pink-armchair.jpg",
+   "rating": 5,
+   "is_top_seller": false,
+   "quantity": 500,
+   "price": 499.99
+ },
+ {
+   "id": 8,
+   "category": "Home",
+   "name": "Antique Drawers",
+   "image_name": "antique-drawers.jpg",
+   "rating": 2,
+   "is_top_seller": false,
+   "quantity": 1225,
+   "price": 99.99
+ },
+ {
+   "id": 9,
+   "category": "Home",
+   "name": "Brown Throw Pillows",
+   "image_name": "brown-throw-pillows.jpg",
+   "rating": 4,
+   "is_top_seller": false,
+   "quantity": 994,
+   "price": 29.99
+ },
+ {
+   "id": 10,
+   "category": "Home",
+   "name": "Knitted Throw Pillows",
+   "image_name": "knitted-throw-pillows.jpg",
+   "rating": 1,
+   "is_top_seller": false,
+   "quantity": 3245,
+   "price": 29.99
+ },
+ {
+   "id": 11,
+   "category": "Apparel",
+   "name": "Ocean Blue Shirt",
+   "image_name": "ocean-blue-shirt.jpg",
+   "rating": 0,
+   "is_top_seller": false,
+   "quantity": 500,
+   "price": 22.95
+ },
+ {
+   "id": 12,
+   "category": "Apparel",
+   "name": "Classic Varsity Top",
+   "image_name": "classic-varsity-top.jpg",
+   "rating": 4.5,
+   "is_top_seller": false,
+   "quantity": 500,
+   "price": 89.95
+ },
+ {
+   "id": 13,
+   "category": "Apparel",
+   "name": "Blue Silk Tuxedo",
+   "image_name": "blue-silk-tuxedo.jpg",
+   "rating": 4,
+   "is_top_seller": true,
+   "quantity": 8,
+   "price": 399.95
+ },
+ {
+   "id": 14,
+   "category": "Apparel",
+   "name": "LED High Tops",
+   "image_name": "led-high-tops.jpg",
+   "rating": 5,
+   "is_top_seller": true,
+   "quantity": 1,
+   "price": 129.95
+ },
+ {
+   "id": 15,
+   "category": "Apparel",
+   "name": "Dark Denim Top",
+   "image_name": "dark-denim-top.jpg",
+   "rating": 5,
+   "is_top_seller": true,
+   "quantity": 0,
+   "price": 299.95
+ },
+ {
+   "id": 16,
+   "category": "Apparel",
+   "name": "Yellow Wool Jumper",
+   "image_name": "yellow-wool-jumper.jpg",
+   "rating": 0.6,
+   "is_top_seller": false,
+   "quantity": 10000,
+   "price": 19.95
+ },
+ {
+   "id": 17,
+   "category": "Apparel",
+   "name": "Classic Leather Jacket",
+   "image_name": "classic-leather-jacket.jpg",
+   "rating": 0,
+   "is_top_seller": true,
+   "quantity": 3,
+   "price": 52.75
+ },
+ {
+   "id": 18,
+   "category": "Apparel",
+   "name": "Olive Green Jacket",
+   "image_name": "olive-green-jacket.jpg",
+   "rating": 3.9,
+   "is_top_seller": false,
+   "quantity": 2,
+   "price": 35.01
+ },
+ {
+   "id": 19,
+   "category": "Jewelry",
+   "name": "Seven Chakra Bracelet",
+   "image_name": "seven-chakra-bracelet.jpg",
+   "rating": 4.5,
+   "is_top_seller": true,
+   "quantity": 2,
+   "price": 10.5
+ },
+ {
+   "id": 20,
+   "category": "Jewelry",
+   "name": "Boho Earrings",
+   "image_name": "boho-earrings.jpg",
+   "rating": 2.7,
+   "is_top_seller": false,
+   "quantity": 4,
+   "price": 12.5
+ },
+ {
+   "id": 21,
+   "category": "Jewelry",
+   "name": "Choker with Bead",
+   "image_name": "choker-with-bead.jpg",
+   "rating": 0.9,
+   "is_top_seller": false,
+   "quantity": 5,
+   "price": 20
+ },
+ {
+   "id": 22,
+   "category": "Jewelry",
+   "name": "Dreamcatcher Pendant Necklace",
+   "image_name": "dreamcatcher-pendant-necklace.jpg",
+   "rating": 4.9,
+   "is_top_seller": true,
+   "quantity": 1,
+   "price": 24.99
+ },
+ {
+   "id": 23,
+   "category": "Jewelry",
+   "name": "Galaxy Earrings",
+   "image_name": "galaxy-earrings.jpg",
+   "rating": 1.9,
+   "is_top_seller": false,
+   "quantity": 300,
+   "price": 19.66
+ },
+ {
+   "id": 24,
+   "category": "Jewelry",
+   "name": "Moon Charm Bracelet",
+   "image_name": "moon-charm-bracelet.jpg",
+   "rating": 3.1,
+   "is_top_seller": false,
+   "quantity": 14,
+   "price": 10
+ },
+ {
+   "id": 25,
+   "category": "Jewelry",
+   "name": "Origami Crane Necklace",
+   "image_name": "origami-crane-necklace.jpg",
+   "rating": 5,
+   "is_top_seller": true,
+   "quantity": 1,
+   "price": 100
+ },
+ {
+   "id": 26,
+   "category": "Jewelry",
+   "name": "Gold Elephant Earrings",
+   "image_name": "gold-elephant-earrings.jpg",
+   "rating": 0,
+   "is_top_seller": false,
+   "quantity": 2,
+   "price": 35.01
+ },
+ {
+   "id": 27,
+   "category": "Garden",
+   "name": "Clay Plant Pot",
+   "image_name": "clay-plant-pot.jpg",
+   "rating": 3,
+   "is_top_seller": true,
+   "quantity": 99,
+   "price": 9.99
+ },
+ {
+   "id": 28,
+   "category": "Garden",
+   "name": "Wooden Outdoor Table",
+   "image_name": "wooden-outdoor-table.jpg",
+   "rating": 1,
+   "is_top_seller": true,
+   "quantity": 4,
+   "price": 99.99
+ },
+ {
+   "id": 29,
+   "category": "Garden",
+   "name": "Biodegradable Cardboard Pots",
+   "image_name": "biodegradable-cardboard-pots.jpg",
+   "rating": 4.3,
+   "is_top_seller": false,
+   "quantity": 1000,
+   "price": 15.25
+ },
+ {
+   "id": 30,
+   "category": "Garden",
+   "name": "Gardening Hand Trowel",
+   "image_name": "gardening-hand-trowel.jpg",
+   "rating": 2,
+   "is_top_seller": false,
+   "quantity": 500,
+   "price": 49.95
+ },
+ {
+   "id": 31,
+   "category": "Garden",
+   "name": "White Ceramic Pot",
+   "image_name": "white-ceramic-pot.jpg",
+   "rating": 4,
+   "is_top_seller": false,
+   "quantity": 300,
+   "price": 9.99
+ },
+ {
+   "id": 32,
+   "category": "Garden",
+   "name": "Yellow watering can",
+   "image_name": "yellow-watering-can.jpg",
+   "rating": 5,
+   "is_top_seller": true,
+   "quantity": 25,
+   "price": 79.99
+ },
+ {
+   "id": 33,
+   "category": "Garden",
+   "name": "Wooden outdoor slats",
+   "image_name": "wooden-outdoor-slats.jpg",
+   "rating": 1,
+   "is_top_seller": false,
+   "quantity": 2765,
+   "price": 5.99
+ },
+ {
+   "id": 34,
+   "category": "Garden",
+   "name": "Wooden Fence",
+   "image_name": "wooden-fence.jpg",
+   "rating": 4,
+   "is_top_seller": false,
+   "quantity": 7725,
+   "price": 7.99
+ }
+]
