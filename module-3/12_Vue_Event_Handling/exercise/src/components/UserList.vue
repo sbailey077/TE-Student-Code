@@ -15,7 +15,7 @@
       <tbody>
         <tr>
           <td>
-            <input type="checkbox" id="selectAll" />
+            <input type="checkbox" id="selectAll" v-on:change="selectAll($event)" v-bind:checked="selectedUserIDs.length === users.length"/>
           </td>
           <td>
             <input type="text" id="firstNameFilter" v-model="filter.firstName" />
@@ -44,7 +44,7 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-bind:checked="selectedUserIDs.includes(user.id)" />
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -52,16 +52,16 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">Enable or Disable</button>
+            <button class="btnEnableDisable" v-on:click="flipStatus(user.id)">{{user.status === 'Active' ? 'Disable' : 'Enable' }}</button>
           </td>
         </tr>
       </tbody>
     </table>
 
     <div class="all-actions">
-      <button>Enable Users</button>
-      <button>Disable Users</button>
-      <button>Delete Users</button>
+      <button v-bind:disabled="actionButtonDisabled">Enable Users</button>
+      <button v-bind:disabled="actionButtonDisabled">Disable Users</button>
+      <button v-bind:disabled="actionButtonDisabled">Delete Users</button>
     </div>
 
     <button v-on:click="showForm = true">Add New User</button>
@@ -109,6 +109,7 @@ export default {
         status: "Active"
       },
       showForm: false,
+      selectedUserIDs: [],
       users: [
         {
           id: 1,
@@ -162,6 +163,16 @@ export default {
     };
   },
   methods: {
+    selectAll(event){
+      if(event.target.checked){
+        this.selectedUserIDs = [];
+        this.users.forEach((user) => {
+          this.selectedUserIDs.push(user.id);
+        })
+      } else {
+        this.selectedUserIDs = [];
+      }
+    },
     saveUser(){
       this.users.push(this.newUser);
       this.resetForm();
@@ -169,9 +180,18 @@ export default {
     resetForm(){
       this.newUser = {};
       this.showForm = false;
+    },
+    flipStatus(id){
+      const userIndex = this.users.findIndex((element => {
+        return element.id == id;
+      }))
+      this.users[userIndex].status = this.users[userIndex].status == 'Active' ? 'Disabled' : 'Active';
     }
   },
   computed: {
+    actionButtonDisabled() {
+      return this.selectedUserIDs.length == 0;
+    },
     filteredList() {
       let filteredUsers = this.users;
       if (this.filter.firstName != "") {
