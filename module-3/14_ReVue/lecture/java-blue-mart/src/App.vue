@@ -1,16 +1,29 @@
 <template>
   <div id="app">
-    <h1>Welcome to Java Blue Mart</h1>
+    <header>
+      <h1>Welcome to {{ storeName }}</h1>
+      <filter-products />
+    </header>
+    <main>
+       <product-list />
+    </main>
   </div>
 </template>
 
 <script>
-
+import ProductList from '@/components/ProductList';
+import FilterProducts from '@/components/FilterProducts';
 
 export default {
   name: 'App',
   components: {
-
+    ProductList,
+    FilterProducts
+  },
+  data() {
+    return {
+      storeName: 'Java Blue Mart'
+    }
   },
    mounted() {
    this.$store.dispatch("getProducts");
