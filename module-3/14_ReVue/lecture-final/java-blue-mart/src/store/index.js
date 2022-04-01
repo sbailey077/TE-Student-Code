@@ -6,11 +6,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    categories: [ 'All', 'Home', 'Apparel', 'Jewelry', 'Garden', 'Furniture'],
+    category: "All"
   },
   mutations: {
     SET_PRODUCTS(state, products) {
       state.products = products;
+    },
+    SET_CATEGORY(state, category) {
+      state.category = category;
     }
  
   },
