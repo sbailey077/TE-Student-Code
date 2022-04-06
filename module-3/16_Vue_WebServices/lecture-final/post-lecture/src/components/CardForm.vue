@@ -90,6 +90,7 @@ export default {
             }
           })
           .catch(error => {
+       
             this.handleErrorResponse(error, "updating");
           });
       }
@@ -98,6 +99,7 @@ export default {
       this.$router.push(`/board/${this.$route.params.boardID}`);
     },
     handleErrorResponse(error, verb) {
+      console.table(error)
       if (error.response) {
         this.errorMsg =
           "Error " + verb + " card. Response received was '" +

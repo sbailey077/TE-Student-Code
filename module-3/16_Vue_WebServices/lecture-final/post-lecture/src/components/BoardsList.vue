@@ -22,7 +22,7 @@
         <input type="text" class="form-control" v-model="newBoard.title" />
         Background Color:
         <input type="text" class="form-control" v-model="newBoard.backgroundColor" />
-        <button class="btn btn-submit" v-on:click="saveNewBoard">Save</button>
+        <button class="btn btn-submit" v-on:click.prevent="saveNewBoard">Save</button>
         <button class="btn btn-cancel" v-on:click="showAddBoard = !showAddBoard">Cancel</button>
       </form>
     </div>
@@ -59,7 +59,38 @@ export default {
       });
     },
     saveNewBoard() {
-
+      this.isLoading = true;
+      boardsService.addBoard(this.newBoard)
+        .then(response => {
+          if (response.status === 201) {
+            this.retrieveBoards();
+            this.showAddBoard = false;
+            this.newBoard ={
+              title: '',
+              backgroundColor: this.randomBackgroundColor()
+            }
+            this.isLoading = false;
+          }
+       })
+       .catch(error => {
+         // If response object is defined, then we know
+         // a response was recieved, so it is a 400 or 500 status
+         if (error.response) {
+           this.errorMsg = `Error returned from server.  Recieved ${error.response.status} ${error.response.statusText}`;
+         }
+         // If the response was undefined and the request
+         // is defined, then we know it is a connection issue
+         else if (error.request) {
+           this.errorMsg = 'Unable to connect to server';
+         }
+         // If both the response and request are undefined, we
+         // know that the request wasn't even attempted. So
+         // this would be an unknown code issue.
+         else {
+           this.errorMsg = 'Unknown error';
+         }
+         this.isLoading = false;
+       });
     },
     randomBackgroundColor() {
       return "#" + this.generateHexCode();

@@ -67,7 +67,28 @@ export default {
         });
     },
     deleteBoard() {
-      
+      if (confirm('Are you sure you want to delete this board')) {
+        boardsService.deleteBoard(this.boardId)
+        .then(response => {
+          if (response.status >= 200 && response.status < 300) {
+            alert('Board successfully deleted');
+            this.$store.commit('DELETE_BOARD', this.boardId);
+            this.$router.push({ name: 'Home'});
+          }
+        })
+        .catch( error => {
+          if (error.response) {
+            this.errorMsg = 'Error returned from server';
+            console.error(error);
+          }
+          else if (error.request) {
+            this.errorMsg = 'Could connect to server';
+          } else {
+            this.errorMsg = 'Unknown error occurred';
+          }
+          
+        })
+      }
     }
   },
   created() {
